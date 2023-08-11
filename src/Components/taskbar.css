@@ -1,0 +1,11 @@
+.taskbar {
+    background-color: var(--grey-taskbar);
+    width: 510px;
+    height: 132px;
+    border-radius: 16px;
+    border: dashed 1px white;
+}
+
+.taskbar1 {
+    margin-top: -24px;
+}

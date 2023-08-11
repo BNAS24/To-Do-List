@@ -1,0 +1,11 @@
+.taskgroup {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 510px;
+    height: 624px;
+    /*border: dashed 1px white;*/
+}
+

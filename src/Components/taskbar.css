@@ -12,6 +12,7 @@
 
 .taskbar:hover {
     cursor: pointer;
+    border: 0.8px solid white ;
 }
 
 .taskbar1 {

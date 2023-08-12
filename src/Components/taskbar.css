@@ -47,12 +47,9 @@
 }
 
 .circle4 {
-    fill:
-        /*empty*/
-    ;
-    stroke:
-        /*empty*/
-    ;
+
+    border: initial;
+    /*remove when ready*/
 }
 
 .task-titleDiv {
@@ -84,6 +81,71 @@
     font-style: normal;
     font-weight: 500;
     line-height: 150%;
+    /*30px*/
     letter-spacing: -0.22px;
     margin: 0 0;
+}
+
+.descriptionDiv {
+    display: flex;
+    position: absolute;
+    margin-top: 73px;
+    margin-left: 92px;
+    width: 394px;
+    height: 48px;
+    align-items: start;
+    flex-shrink: 0;
+    border: dashed 1px white;
+    color: white;
+
+    overflow: hidden;
+
+}
+
+.description {
+    color: white;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+    /* 24px */
+    letter-spacing: -0.176px;
+
+    margin: 0 auto;
+
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Add ellipsis (...) for truncated text */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Limit to two lines of text */
+    -webkit-box-orient: vertical;
+
+    margin: 0;
+}
+
+.dateCreatedDiv {
+    color: var(--scheme-green);
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 255px;
+}
+
+
+.date-created {
+
+    margin: 0;
+}
+
+.dueDateDiv {
+    color: var(--scheme-purple);
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 373px;
+}
+
+.due-date {
+    margin: 0;
 }

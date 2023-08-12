@@ -49,3 +49,7 @@
     stroke-width: 0.5px;
     stroke: #FFF;
   }
+
+  .settings:hover {
+    cursor: pointer;
+  }

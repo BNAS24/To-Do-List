@@ -22,6 +22,7 @@
     /*border: dashed 1px white;*/
   }
   
+
   .headingText {
     display: flex;
     width: 163.837px;
@@ -37,6 +38,8 @@
     font-size: var(--heading1-size);
     line-height: 150%;
     letter-spacing: -0.43px;
+
+    white-space: nowrap;
   }
   
   .settings {

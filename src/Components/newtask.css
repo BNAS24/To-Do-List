@@ -1,7 +1,7 @@
 .newTask{
-    display: flex;
     position: absolute;
-    bottom: 8px;
+    bottom: 40px;
+    left: 32px;
 }
 
   .newTask:hover {

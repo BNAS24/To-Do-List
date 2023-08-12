@@ -3,3 +3,17 @@
     position: absolute;
     bottom: 8px;
 }
+
+  .newTask:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2); /* Apply a shadow effect */
+  }
+  
+  .newTask:hover svg line {
+    stroke: hsl(3, 100%, 57%); /* Change the stroke color on hover */
+  }
+  
+  .newTask:hover svg rect {
+    stroke: hsl(3, 100%, 57%); /* Change the stroke color on hover */
+  }
+  

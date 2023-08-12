@@ -47,7 +47,7 @@
   
     fill: rgba(0, 0, 0, 0.00);
     stroke-width: 0.5px;
-    stroke: #FFF;
+    stroke: white;
   }
 
   .settings:hover {

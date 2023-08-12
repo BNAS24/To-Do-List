@@ -18,7 +18,8 @@
 }
 
 * {
-  font-family: sans-serif;
+  /*This is the font's url https://fonts.google.com/specimen/Inter?query=inter */
+  font-family: 'Inter', sans-serif;
   box-sizing: border-box;
 }
 

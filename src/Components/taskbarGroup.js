@@ -10,15 +10,16 @@ const TaskBarGroup = () => {
     const taskBar4 = "taskbar circle4";
 
 
-    const title1 = 'Task 4 kkk l eq'; /*only can allow 15 characters including spaces */
+    /*only can allow 15 characters including spaces */
+    const title1 = 'Task 1'; 
     const title2 = 'Task 2';
     const title3 = 'Task 3';
     const title4 = 'Task 4';
 
-    const descrition1 = 'what the fuck is up'
-    const descrition2 = 'nothing much chicken butt'
-    const descrition3 = 'i cant complain im just out here maintaining, living my lifeNeque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...'
-    const descrition4 = 'This is also just some random text I picked up'
+    const descrition1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate tristique leo, ut volutpat elit lobortis sit amet. Sed semper volutpat imperdiet. Donec lacinia sit amet est ut elementum. Morbi lorem nibh, eleifend quis imperdiet vel, mattis a neque.'
+    const descrition2 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate tristique leo, ut volutpat elit lobortis sit amet. Sed semper volutpat imperdiet. Donec lacinia sit amet est ut elementum. Morbi lorem nibh, eleifend quis imperdiet vel, mattis a neque.'
+    const descrition3 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate tristique leo, ut volutpat elit lobortis sit amet. Sed semper volutpat imperdiet. Donec lacinia sit amet est ut elementum. Morbi lorem nibh, eleifend quis imperdiet vel, mattis a neque.'
+    const descrition4 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate tristique leo, ut volutpat elit lobortis sit amet. Sed semper volutpat imperdiet. Donec lacinia sit amet est ut elementum. Morbi lorem nibh, eleifend quis imperdiet vel, mattis a neque.'
 
     return (
         <div className={taskClass1}>

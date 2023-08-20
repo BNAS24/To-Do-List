@@ -1,7 +1,5 @@
 .newTask {
-    position: absolute;
-    bottom: 40px;
-    left: 32px;
+  margin-top: 20px;
 }
 
   .newTask:hover {

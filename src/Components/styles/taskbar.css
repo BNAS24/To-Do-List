@@ -10,19 +10,23 @@
     /*border: dashed 1px white;*/
 
         margin-top: 16px;
+        /*standard*/
 }
 
 .taskbar:hover {
     cursor: pointer;
     border: 0.8px solid white ;
+    /*standard*/
 }
 
 .taskbar1 {
     margin-top: 1px;
+    /*standard*/
 }
 
 .circleAll {
     margin: 28px 0 0 28px;
+    /*standard*/
 }
 
 .circleAll:hover {
@@ -31,6 +35,7 @@
     background-position: center;
     background-size: 24px;
     cursor: pointer;
+    /*standard*/
 }
 
 .circle1 {
@@ -73,6 +78,7 @@
     max-width: 147px;
 
     /*border: dashed 1px white;*/
+    /*standard*/
 }
 
 .task-title {
@@ -86,6 +92,7 @@
     /*30px*/
     letter-spacing: -0.22px;
     margin: 0 0;
+    /*standard*/
 }
 
 .descriptionDiv {
@@ -101,6 +108,7 @@
     color: white;
 
     overflow: hidden;
+    /*standard*/
 
 }
 
@@ -125,6 +133,7 @@
     -webkit-box-orient: vertical;
 
     margin: 0;
+    /*standard*/
 }
 
 .dateCreatedDiv {
@@ -132,12 +141,14 @@
     position: absolute;
     margin-top: 29px;
     margin-left: 255px;
+    /*standard*/
 }
 
 
 .date-created {
 
     margin: 0;
+    /*standard*/
 }
 
 .dueDateDiv {
@@ -145,8 +156,10 @@
     position: absolute;
     margin-top: 29px;
     margin-left: 373px;
+    /*standard*/
 }
 
 .due-date {
     margin: 0;
+    /*standard*/
 }

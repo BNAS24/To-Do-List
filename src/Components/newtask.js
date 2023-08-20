@@ -1,10 +1,9 @@
-import './newtask.css';
+import './styles/newtask.css';
 
-const NewTask = () => {
-
+export const NewTask = ({ createTask }) => {
 
     return (
-        <div className='newTask'>
+        <div className='newTask' onClick={createTask}>
             <svg xmlns="http://www.w3.org/2000/svg" width="510" height="40" viewBox="0 0 510 40" fill="none">
                 <line y1="16" x2="510.001" y2="16" stroke="#FF0000" stroke-width="2" />
                 <g filter="url(#filter0_d_8_33)">
@@ -29,5 +28,3 @@ const NewTask = () => {
         </div>
     );
 }
-
-export default NewTask

@@ -8,8 +8,7 @@ function App() {
   return (
     <div className='appBody'>
       <Heading />
-      <TaskBarGroup />
-
+    <TaskBarGroup />
     </div>
   );
 }

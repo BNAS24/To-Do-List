@@ -1,5 +1,4 @@
 import './styles/heading.css';
-import TaskBarGroup from './taskbarGroup';
 
 
 const Heading = () => {

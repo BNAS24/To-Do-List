@@ -20,15 +20,18 @@ const TaskBarGroup = () => {
             timestamp: date
      }
         setTasks([...tasks, newTask])
+
     }
 
 
     return (
+        <div className='wrapper'>
         <div className="taskgroup">
             {tasks.map((task, index) => (
                 <TaskBar key={index} taskData={task} />
             ))}
             <NewTask createTask={createTask} />
+        </div>
         </div>
     );
 };

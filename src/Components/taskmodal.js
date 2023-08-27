@@ -1,13 +1,26 @@
-import './taskmodal.css';
+import './styles/taskmodal.css';
 
-export const TaskModal = () => {
+export const TaskModal = ({toggleModal, dateCreated}) => {
 
+    
     return (
-        <div className="dropback">
+        <div className="dropback" onClick={toggleModal}>
             <div className="modal-card">
+                <div className="TaskTitle">{}</div>
 
+                <div className="dateCreated">{dateCreated}</div>
+                <div className="dateDue"></div>
+
+                <div className="TaskDescription"></div>
+
+                <div className="priority1"></div>
+                <div className="priority2"></div>
+                <div className="priority3"></div>
+                <div className="priority4"></div>
             </div>
         </div>
     );
 
 }
+
+//This is just a structure for visual purposes, adjust classnames and parameters needed be.

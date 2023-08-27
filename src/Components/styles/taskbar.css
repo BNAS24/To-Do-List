@@ -1,6 +1,7 @@
 .taskbar {
     display: flex;
     flex-direction: row;
+    flex-shrink: 0;
     /*These flex properties might mess up your code */
     background-color: var(--grey-taskbar);
     width: 510px;
@@ -9,13 +10,16 @@
     box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
     /*border: dashed 1px white;*/
 
-        margin-top: 16px;
-        /*standard*/
+    margin-top: 16px;
+    /*standard*/
+
+    /*position*/
+    position: relative;
 }
 
 .taskbar:hover {
     cursor: pointer;
-    border: 0.8px solid white ;
+    border: 0.8px solid white;
     /*standard*/
 }
 
@@ -98,7 +102,8 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
-    line-height: 150%;     /*30px*/
+    line-height: 150%;
+    /*30px*/
     letter-spacing: -0.22px;
 
     border: none;
@@ -160,7 +165,7 @@
 .date-created {
 
     margin: 0;
-    
+
     /*standard*/
 }
 
@@ -194,6 +199,5 @@
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: none ;
+    background-image: none;
 }
-

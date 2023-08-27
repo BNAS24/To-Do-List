@@ -24,12 +24,19 @@
 }
 
 .appBody {
-  background-color: var(--grey-dark);
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: -8px; /*should remove later */
+  background-color: var(--grey-dark);
+  border: dashed 1px white;
   height: 100%;
-  width: auto;
-  padding: 40px 0;
+  width: 100%;
+  margin: 0 0;
 }
+
+body {
+  background-color: var(--grey-dark);
+  margin: 0 0;
+}
+

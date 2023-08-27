@@ -1,13 +1,7 @@
 .taskgroup {
-
-    position: absolute;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
     width: 530px;
     height: 624px;
-
-    margin-left: 24px;
+    border: dashed 1px white;
 
     /*scroll*/
     overflow-y: auto;
@@ -15,7 +9,6 @@
 
     padding-left: 4px;
     padding-bottom: 8px;
-
 }
 
 .taskgroup::-webkit-scrollbar {
@@ -26,4 +19,8 @@
 .taskgroup::-webkit-scrollbar-thumb {
     background-color: #888;
     /* Change the color as needed */
+}
+
+.wrapper {
+    position: absolute;
 }

@@ -1,12 +1,19 @@
 import React from 'react';
 import './styles/taskbar.css';
 import { TaskModal } from './taskmodal.js';
+import { useState } from 'react';
 
-const TaskBar = ({ taskData, TaskTitle, DueDate, DateCreated, Standard_Class, Circle_Color, Circle_All, Description }) => {
+const TaskBar = ({ taskData, TaskTitle, DueDate, DateCreated, Standard_Class, Circle_Color, Circle_All, Description, }) => {
 
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const toggleModal = () => {
+      setIsModalOpen(prevState => !prevState);
+    };
 
     return (
-        <div className="taskbar">
+        <div className="taskbar" onClick={toggleModal}>
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" className="circleAll">
                 <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke="#979797" strokeWidth="3" className={Circle_Color} />
             </svg>
@@ -40,7 +47,7 @@ const TaskBar = ({ taskData, TaskTitle, DueDate, DateCreated, Standard_Class, Ci
 
             {/*Task Modal*/}
 
-            <TaskModal dateCreated={taskData.timestamp}/>
+            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} onClick={toggleModal} />}
 
         </div>
     );

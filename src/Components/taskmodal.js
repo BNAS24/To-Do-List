@@ -1,12 +1,11 @@
 import './styles/taskmodal.css';
-import TaskBar from './taskbar';
 
-export const TaskModal = ({toggleModal, dateCreated, closeModal}) => {
+export const TaskModal = ({closeModal, dateCreated}) => {
 
     
     return (
-        <div className="dropback" >
-            <div className="modal-card" onClick={closeModal}>
+        <div className="dropback" onClick={closeModal} >
+            <div className="modal-card" >
                 <div className="TaskTitle"></div>
 
                 <div className="dateCreated">{dateCreated}</div>

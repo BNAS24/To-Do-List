@@ -3,14 +3,15 @@ import './styles/taskbar.css';
 import { TaskModal } from './taskmodal.js';
 import { useState } from 'react';
 
-const TaskBar = ({ taskData, TaskTitle, DueDate, DateCreated, Standard_Class, Circle_Color, Circle_All, Description, }) => {
-
+const TaskBar = ({ taskData, TaskTitle, Circle_Color, Circle_All, Description, }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleModal = () => {
       setIsModalOpen(prevState => !prevState);
     };
+
+    const dateDate = document.getElementById('due-date')
 
     return (
         <div className="taskbar" onClick={toggleModal}>
@@ -47,7 +48,7 @@ const TaskBar = ({ taskData, TaskTitle, DueDate, DateCreated, Standard_Class, Ci
 
             {/*Task Modal*/}
 
-            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} onClick={toggleModal} />}
+            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} dueDate={dateDate} onClick={toggleModal} />}
 
         </div>
     );

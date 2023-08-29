@@ -1,7 +1,6 @@
 .taskgroup {
     width: 530px;
     height: 624px;
-    border: dashed 1px white;
 
     /*scroll*/
     overflow-y: auto;

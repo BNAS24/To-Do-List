@@ -15,7 +15,7 @@
     height: 50%;
 
     border-radius: 38px;
-    background: black;
+    background: var(--grey-medium, #282828);
 
     transform: translate(50%,50%);
 }

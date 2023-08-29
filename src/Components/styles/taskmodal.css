@@ -39,7 +39,7 @@
     top: 8px;
     left: 32px;
 
-    border: dashed 1px white;
+    /* border: dashed 1px white; */
 
     white-space: nowrap;
 }
@@ -198,6 +198,7 @@
 
     background-color: #E30000;
     border: none;
+    border-radius: 8px;
 
     color: white;
 }

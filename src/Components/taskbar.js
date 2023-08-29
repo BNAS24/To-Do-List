@@ -28,16 +28,14 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                     placeholder='Task Title'
                     maxLength={100}
                 >
-
                 </input>
             </div>
+
             <div className='descriptionDiv'>
-                <p className='description'>
-                    {taskData.description}
-                </p>
+                <p className='description'>{taskData.description}</p>
             </div>
             <div className='dateCreatedDiv'>
-                <p className='date-created'>{taskData.timestamp}</p> 
+                <p className='date-created'>{taskData.timestamp}</p>
             </div>
             <div className='dueDateDiv'>
                 <label>Due:</label>
@@ -46,7 +44,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                     placeholder='Due Date'
                     maxLength={15}
                 >
-                </input> 
+                </input>
             </div>
 
             {/*Task Modal*/}

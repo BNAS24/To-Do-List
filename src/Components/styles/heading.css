@@ -1,58 +1,64 @@
-
 .todolistCard {
-    position: relative;
-    width: 574px;
-    height: 866px;
-    border-radius: 38px;
-    box-shadow: 1px 4px 17px 6px rgba(0, 0, 0, 0.25);
-    background: var(--grey-medium, #282828);
-    margin-top: 50px;
-  }
-  
-  .headingGroup {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 502px;
-    height: 75px;
-    margin-left: 32px;
-    margin-top: 8px;
-    position: absolute;
-    /*border: dashed 1px white;*/
-  }
-  
+  position: relative;
+  width: 574px;
+  height: 866px;
 
-  .headingText {
-    display: flex;
-    width: 163.837px;
-    height: 41.827px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-left: 16px;
-    color: white;
-  
-    /*typography*/
-    text-align: center;
-    font-size: var(--heading1-size);
-    line-height: 150%;
-    letter-spacing: -0.43px;
+  margin-top: 50px;
 
-    white-space: nowrap;
-  }
-  
-  .settings {
-    width: 64px;
-    height: 14px;
-    flex-shrink: 0;
-    margin-left: 245px;
-  
-    fill: rgba(0, 0, 0, 0.00);
-    stroke-width: 0.5px;
-    stroke: white;
-  }
+  border-radius: 38px;
+  box-shadow: 1px 4px 17px 6px rgba(0, 0, 0, 0.25);
+  background: var(--grey-medium, #282828);
 
-  .settings:hover {
-    cursor: pointer;
-  }
+}
+
+.headingGroup {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  width: 502px;
+  height: 75px;
+  margin-left: 32px;
+  margin-top: 8px;
+
+  /*border: dashed 1px white;*/
+}
+
+
+.headingText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 163.837px;
+  height: 41.827px;
+  margin-left: 16px;
+
+  color: white;
+
+  text-align: center;
+  font-size: var(--heading1-size);
+  line-height: 150%;
+  letter-spacing: -0.43px;
+
+  white-space: nowrap;
+}
+
+.settings {
+  flex-shrink: 0;
+
+  width: 64px;
+  height: 14px;
+  margin-left: 245px;
+
+  fill: rgba(0, 0, 0, 0.00);
+  stroke-width: 0.5px;
+  stroke: white;
+}
+
+.settings:hover {
+  cursor: pointer;
+}

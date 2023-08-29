@@ -37,7 +37,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                 </p>
             </div>
             <div className='dateCreatedDiv'>
-                <p className='date-created'>{taskData.timestamp}</p> {/*The date will be dynamically  defined by a javascript function*/}
+                <p className='date-created'>{taskData.timestamp}</p> 
             </div>
             <div className='dueDateDiv'>
                 <label>Due:</label>
@@ -46,7 +46,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                     placeholder='Due Date'
                     maxLength={15}
                 >
-                </input> {/*The date will be dynamically  defined by a javascript function*/}
+                </input> 
             </div>
 
             {/*Task Modal*/}

@@ -3,8 +3,6 @@ import './styles/heading.css';
 
 const Heading = () => {
 
-
-
   return (<div className="todolistCard">
     <div className="headingGroup">
       <div className="headingContainer">

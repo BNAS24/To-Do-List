@@ -25,7 +25,7 @@ const TaskBarGroup = () => {
 
 
     return (
-        <div className='wrapper'>
+        <div className='taskgroup-wrapper'>
         <div className="taskgroup">
             {tasks.map((task, index) => (
                 <TaskBar key={index} taskData={task} />

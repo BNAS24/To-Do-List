@@ -24,6 +24,44 @@
     transform: translate(50%, 50%);
 }
 
+.modal-task-title-div {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: hidden;
+
+    height: auto;
+    width: 400px;
+   
+
+    top: 8px;
+    left: 32px;
+
+    border: dashed 1px white;
+
+    white-space: nowrap;
+}
+
+.modal-task-title {
+    display: flex;
+    justify-content: flex-start;
+
+    height: auto;
+    
+    background-color: transparent;
+    outline: none;
+    border: none;
+    
+    font-size: 2.441rem;
+
+    line-height: 150%;
+    /*30px*/
+    letter-spacing: -0.22px;
+    color: white;
+}
+
 .modal-date-created {
     position: absolute;
 
@@ -38,7 +76,8 @@
 .description-title {
     position: absolute;
 
-    top: 17%;
+    top: calc(17% - 6px);
+    left: 8px;
 
     color: white;
 
@@ -79,4 +118,91 @@
 
     background-color: #888;
     border-radius: 2px;
+}
+
+.priority-container {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 50%;
+
+    top: 25%;
+    right: 16px;
+}
+
+.priority-comp {
+    flex-shrink: 1;
+
+    height: auto;
+    width: 5vw;
+
+    /* border: dashed 0.5px white; */
+    color: white;
+
+    text-align: center;
+}
+
+.priority1 {
+    color: var(--scheme-red);
+    border: solid 1px var(--scheme-red);
+}
+
+.priority1:hover {
+    color: white;
+    background-color: var(--scheme-red);
+}
+
+.priority2 {
+    color: var(--scheme-orange);
+    border: solid 1px var(--scheme-orange);
+}
+
+.priority2:hover {
+    color: white;
+    background-color: var(--scheme-orange);
+}
+
+.priority3 {
+    color: var(--scheme-blue);
+    border: solid 1px var(--scheme-blue);
+}
+
+.priority3:hover {
+    color: white;
+    background-color: var(--scheme-blue);
+}
+
+.priority4 {
+    color: var(--grey-light);
+    border: solid 1px var(--grey-light);
+}
+
+.priority4:hover {
+    color: white;
+    background-color: var(--grey-light);
+}
+
+.delete-button {
+    position: absolute;
+
+    width: 200px;
+    height: 40px;
+
+    top: 88%;
+    left: 45%;
+
+    transform: translate(-50%, -50%);
+
+    background-color: #E30000;
+    border: none;
+
+    color: white;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    background-color: hsl(3, 100%, 57%);
 }

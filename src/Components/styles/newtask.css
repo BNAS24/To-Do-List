@@ -1,14 +1,23 @@
 .newTask {
-  margin-top: 20px;
+  position: absolute;
+
+  top: 92%;
+  left: 50%;
+
+  transform: translate(-50%, 50%);
 }
 
 .newTask:hover {
-  transform: translateY(-2px);
+  position: absolute;
 
-  filter: brightness(1.2);
+  top: 91.3%;
+  left: 50%;
+
 
   cursor: pointer;
+  filter: brightness(1.2);
 }
+
 
 .newTask:hover svg line {
   stroke: hsl(3, 100%, 57%);

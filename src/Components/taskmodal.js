@@ -1,4 +1,5 @@
 import './styles/taskmodal.css';
+import React from 'react';
 
 export const TaskModal = ({ closeModal, dateCreated }) => {
 
@@ -7,7 +8,7 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
         <div className="modal-dropback" onClick={closeModal} >
             <div className="modal-card" >
                 <div className="modal-task-title-div">
-                    <input className='modal-task-title'
+                    <input id='modal-task-title' className='modal-task-title'
                         type='text'
                         placeholder='Task Title'
                         maxLength={100}

@@ -8,12 +8,12 @@ const TaskBar = ({ taskData, Circle_Color }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => {
-        setIsModalOpen(prevState => !prevState);
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
-        setIsModalOpen(prevState => !prevState);
-    }
+        setIsModalOpen(false);
+    };
 
 
     return (
@@ -47,9 +47,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                 </input>
             </div>
 
-            {/*Task Modal*/}
-
-            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} onClick={closeModal} />}
+            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} closeModal={closeModal} />}
 
         </div>
     );

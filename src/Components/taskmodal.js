@@ -3,7 +3,6 @@ import React from 'react';
 
 export const TaskModal = ({ closeModal, dateCreated }) => {
 
-
     return (
         <div className="modal-dropback" onClick={closeModal} >
             <div className="modal-card" >

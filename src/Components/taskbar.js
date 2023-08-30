@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/taskbar.css';
 import { TaskModal } from './taskmodal.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const TaskBar = ({ taskData, Circle_Color }) => {
 
@@ -14,6 +14,21 @@ const TaskBar = ({ taskData, Circle_Color }) => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+    useEffect(() => {
+        const escapeModal = (event) => {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        };
+    
+        document.addEventListener("keydown", escapeModal);
+    
+        return () => {
+            document.removeEventListener("keydown", escapeModal);
+        };
+    }, []);
+    
 
     const stopPropagation = (event) => {
         event.stopPropagation();

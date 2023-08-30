@@ -8,7 +8,7 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
       };
 
     return (
-        <div className="modal-dropback" onClick={closeModal} >
+        <div className="modal-dropback" onClick={closeModal}>
             <div className="modal-card" onClick={stopPropagation}>
                 <div className="modal-task-title-div">
                     <input id='modal-task-title' className='modal-task-title'

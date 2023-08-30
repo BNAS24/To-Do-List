@@ -143,15 +143,20 @@ These styles are not in use currently.
 }
 
 .dateCreatedDiv {
-    height: 1.4em;
+    display: flex;
     position: absolute;
+    justify-content: center;
+    align-items: center;
 
-    margin-top: 32px;
+    height: 2.5rem;
+    width: auto;
+    margin-top: 20px;
     margin-left: 189px;
+    padding: 3px 3px;
 
     color: var(--scheme-green);
 
-    /* border: dashed white; */
+    /* border: dashed 0.5px white; */
 }
 
 
@@ -161,32 +166,34 @@ These styles are not in use currently.
 
 .dueDateDiv {
     display: flex;
-    width: 160px;
-    height: 1.4em;
-    flex-direction: row;
-    align-items: center;
     position: absolute;
+    align-items: center;
+    justify-content: center;
 
-    margin-top: 30px;
+    width: 160px;
+    height: 2.5rem;
+    margin-top: 20px;
     margin-left: 347px;
+    padding: 3px 0px;
 
-    /* border: dashed white; */
+    /* border: dashed 0.5px white; */
 
     color: var(--scheme-purple);
 }
 
 .due-date {
+    margin: 0 0;
+    padding-left: 2px;
+    
     background-color: transparent;
     border: none;
     outline: none;
 
+    color: var(--scheme-purple);
+
     font-size: 1em;
     letter-spacing: -1px;
     text-transform: uppercase;
-
-    margin: 0;
-    padding-left: 2px;
-    color: var(--scheme-purple);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {

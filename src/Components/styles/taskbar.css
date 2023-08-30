@@ -159,6 +159,10 @@ These styles are not in use currently.
     /* border: dashed 0.5px white; */
 }
 
+.dateCreatedDiv:hover {
+    cursor: auto;
+}
+
 
 .date-created {
     margin: 0 0;
@@ -179,6 +183,10 @@ These styles are not in use currently.
     /* border: dashed 0.5px white; */
 
     color: var(--scheme-purple);
+}
+
+.dueDateDiv{
+    cursor: auto;
 }
 
 .due-date {

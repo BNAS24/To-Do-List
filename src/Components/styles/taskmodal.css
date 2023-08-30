@@ -34,11 +34,11 @@
     overflow: hidden;
 
     height: auto;
-    width: 400px;
-   
+    width: 45%;
 
-    top: 8px;
-    left: 32px;
+
+    top: 16px;
+    left: 24px;
 
     /* border: dashed 1px white; */
 
@@ -50,15 +50,14 @@
     justify-content: flex-start;
 
     height: auto;
-    
+
     background-color: transparent;
     outline: none;
     border: none;
-    
-    font-size: 2.441rem;
 
-    line-height: 150%;
-    /*30px*/
+    font-size: 1.7rem;
+
+    line-height: 100%;
     letter-spacing: -0.22px;
     color: white;
 }

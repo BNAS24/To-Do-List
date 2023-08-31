@@ -2,6 +2,7 @@ import './styles/taskbarGroup.css';
 import TaskBar from './taskbar';
 import { NewTask } from './newtask';
 import { useState } from 'react';
+import { TaskContextProvider } from '../TaskModalContext'; 
 
 const TaskBarGroup = () => {
     const [tasks, setTasks] = useState([]);
@@ -19,6 +20,7 @@ const TaskBarGroup = () => {
     };
 
     return (
+        <TaskContextProvider>
         <div className='taskgroup-wrapper'>
             <div className="taskgroup">
                 {tasks.map((task, index) => (
@@ -27,6 +29,7 @@ const TaskBarGroup = () => {
                 <NewTask createTask={createTask} />
             </div>
         </div>
+        </TaskContextProvider>
     );
 };
 

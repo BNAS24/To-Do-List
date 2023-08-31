@@ -1,7 +1,21 @@
 import './styles/taskmodal.css';
-import React from 'react';
+import { useTaskContext, TaskContextProvider } from '../TaskModalContext';
+
+
+export const TaskModalContext = ({ closeModal, dateCreated }) => {
+    return (
+      <TaskContextProvider>
+        <TaskModal closeModal={closeModal} dateCreated={dateCreated} />
+      </TaskContextProvider>
+    );
+  };
 
 export const TaskModal = ({ closeModal, dateCreated }) => {
+    const { taskTitle, setTaskTitle } = useTaskContext();
+
+    const updateTitle = (event) => {
+        setTaskTitle(event.target.value);
+    };
 
     const stopPropagation = (event) => {
         event.stopPropagation();
@@ -13,6 +27,8 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
                 <div className="modal-task-title-div">
                     <input id='modal-task-title' className='modal-task-title'
                         type='text'
+                        value={taskTitle} 
+                        onChange={updateTitle}
                         placeholder='Task Title'
                         maxLength={100}
                     ></input>
@@ -43,4 +59,4 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
 
 }
 
-//This is just a structure for visual purposes, adjust classnames and parameters if needed be.
+export default TaskContextProvider

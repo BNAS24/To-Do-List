@@ -33,7 +33,7 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
                         type='text'
                         value={taskTitle} 
                         onChange={updateTitle}
-                        placeholder='Task Title'
+                        placeholder='Title'
                         maxLength={100}
                     ></input>
                 </div>

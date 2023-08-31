@@ -49,14 +49,14 @@
 }
 
 .settings {
-  flex-shrink: 0;
+  position: absolute;
 
   width: 64px;
   height: 14px;
-  margin-left: 245px;
+  right: 8px;
 
   fill: rgba(0, 0, 0, 0.00);
-  stroke-width: 0.5px;
+  stroke-width: 1px;
   stroke: white;
 }
 

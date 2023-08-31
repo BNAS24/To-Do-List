@@ -12,7 +12,6 @@ const TaskBarGroup = () => {
 
     const createTask = () => {
         const newTask = { 
-            tasktitle: 'Task',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             timestamp: formattedDate
         };

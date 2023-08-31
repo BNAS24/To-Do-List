@@ -1,17 +1,17 @@
 import './styles/taskmodal.css';
 import { useTaskContext, TaskContextProvider } from '../TaskModalContext';
 
-
 export const TaskModalContext = ({ closeModal, dateCreated }) => {
     return (
-      <TaskContextProvider>
-        <TaskModal closeModal={closeModal} dateCreated={dateCreated} />
-      </TaskContextProvider>
+        <TaskContextProvider>
+            <TaskModal closeModal={closeModal} dateCreated={dateCreated} />
+        </TaskContextProvider>
     );
-  };
+};
 
-export const TaskModal = ({ closeModal, dateCreated }) => {
-    const { taskTitle, setTaskTitle, dueDate, setDueDate } = useTaskContext();
+export const TaskModal = ({ closeModal, dateCreated, }) => {
+    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent } = useTaskContext();
+
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
@@ -21,9 +21,13 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
         setDueDate(event.target.value);
     };
 
+    const updateDescription = (event) => {
+        setDescrpContent(event.target.value);
+    }
+
     const stopPropagation = (event) => {
         event.stopPropagation();
-      };
+    };
 
     return (
         <div className="modal-dropback" onClick={closeModal}>
@@ -31,7 +35,7 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
                 <div className="modal-task-title-div">
                     <input id='modal-task-title' className='modal-task-title'
                         type='text'
-                        value={taskTitle} 
+                        value={taskTitle}
                         onChange={updateTitle}
                         placeholder='Enter Title'
                         maxLength={100}
@@ -49,12 +53,14 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
                         maxLength={15}
                     >
                     </input>
-                    </div>
+                </div>
                 <h3 className="description-title">Description</h3>
                 <div className='modal-description'>
                     <textarea
                         type="text"
                         placeholder='Enter description here...'
+                        value={descrpContent}
+                        onChange={updateDescription}
                         className='modal-description-text-area'
                     >
                     </textarea>

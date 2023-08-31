@@ -7,17 +7,17 @@ import { useTaskContext, TaskContextProvider } from '../TaskModalContext';
 const TaskBarContext = ({ taskData, Circle_Color }) => {
     return (
         <>
-      <TaskContextProvider>
-        <TaskBar taskData={taskData} Circle_Color={Circle_Color} />
-      </TaskContextProvider>
-      </>
+            <TaskContextProvider>
+                <TaskBar taskData={taskData} Circle_Color={Circle_Color} />
+            </TaskContextProvider>
+        </>
     );
-  };
-  
+};
+
 const TaskBar = ({ taskData, Circle_Color }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { taskTitle, setTaskTitle, dueDate, setDueDate } = useTaskContext(); 
+    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent } = useTaskContext();
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
@@ -79,7 +79,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                 </div>
 
                 <div className='descriptionDiv' >
-                    <p className='description' onClick={stopPropagation}>{taskData.description}</p>
+                    <p className='description' onClick={stopPropagation}>{descrpContent}</p>
                 </div>
                 <div className='dateCreatedDiv' onClick={stopPropagation}>
                     <p className='date-created' onClick={stopPropagation}>{taskData.timestamp}</p>
@@ -97,7 +97,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                 </div>
             </div>
             {isModalOpen && <TaskModal dateCreated={taskData.timestamp} closeModal={closeModal} />}
-            </>
+        </>
 
     );
 }

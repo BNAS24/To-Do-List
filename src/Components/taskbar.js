@@ -71,7 +71,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                         type='text'
                         value={taskTitle}
                         onChange={updateTitle}
-                        placeholder='Title'
+                        placeholder='Enter Title'
                         maxLength={100}
                         onClick={stopPropagation}
                     >

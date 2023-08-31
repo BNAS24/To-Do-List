@@ -58,6 +58,8 @@
     line-height: 100%;
     letter-spacing: -0.22px;
     color: white;
+
+    text-overflow: ellipsis;
 }
 
 .modal-date-created {

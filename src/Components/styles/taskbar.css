@@ -100,6 +100,8 @@ These styles are not in use currently.
     border: none;
 
     color: white;
+
+    text-overflow: ellipsis;
 }
 
 .descriptionDiv {

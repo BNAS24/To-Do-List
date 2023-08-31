@@ -11,10 +11,14 @@ export const TaskModalContext = ({ closeModal, dateCreated }) => {
   };
 
 export const TaskModal = ({ closeModal, dateCreated }) => {
-    const { taskTitle, setTaskTitle } = useTaskContext();
+    const { taskTitle, setTaskTitle, dueDate, setDueDate } = useTaskContext();
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
+    };
+
+    const updateDueDate = (event) => {
+        setDueDate(event.target.value);
     };
 
     const stopPropagation = (event) => {
@@ -35,12 +39,22 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
                 </div>
 
                 <div className="modal-date-created">{dateCreated}</div>
-                <div className="modal-due-date"></div>
+                <div className='modal-due-date-div' onClick={stopPropagation}>
+                    <label>Due:</label>
+                    <input className='modal-due-date'
+                        type='date'
+                        value={dueDate}
+                        onChange={updateDueDate}
+                        placeholder='Due Date'
+                        maxLength={15}
+                    >
+                    </input>
+                    </div>
                 <h3 className="description-title">Description</h3>
                 <div className='modal-description'>
                     <textarea
                         type="text"
-                        placeholder='Aliquam lacinia, sem vitae vehicula tristique, tortor diam interdum ligula, vitae tincidunt felis magna in leo. In dapibus mauris non neque laoreet, a lacinia metus faucibus. Praesent eget arcu vel urna vulputate molestie. Sed sed tincidunt odio. Nullam in dolor id nibh mattis vulputate luctus quis magna. Nullam quis lorem ut eros auctor tincidunt. Etiam eu elit non odio tincidunt viverra. Proin tempus dui nunc, eget venenatis augue congue sit amet. Aliquam velit lectus, rutrum quis eros tincidunt, tempor rhoncus nisi. Nulla dapibus erat efficitur, pulvinar justo at, laoreet erat. Mauris finibus at sapien nec tincidunt. Duis nunc massa, hendrerit at lorem eget, ornare cursus purus. Donec vitae arcu et quam maximus cursus. Proin sit amet lorem accumsan, tincidunt quam ac, maximus mi.Proin tempus dui nunc, eget venenatis augue congue sit amet. Aliquam velit lectus, rutrum quis eros tincidunt, tempor rhoncus nisi. Nulla dapibus erat efficitur, pulvinar justo at, laoreet erat. Mauris finibus at sapien nec tincidunt. Duis nunc massa, hendrerit at lorem eget, ornare cursus purus. Donec vitae arcu et quam maximus cursus. Proin sit amet lorem accumsan, tincidunt quam ac, maximus mi. '
+                        placeholder='Enter description here...'
                         className='modal-description-text-area'
                     >
                     </textarea>

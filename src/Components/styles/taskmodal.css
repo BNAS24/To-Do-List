@@ -21,7 +21,6 @@
     border-radius: 38px;
     background: var(--grey-medium, #282828);
 
-
     transform: translate(50%, 50%);
 }
 
@@ -35,7 +34,6 @@
 
     height: auto;
     width: 45%;
-
 
     top: 16px;
     left: 24px;
@@ -71,6 +69,38 @@
     font-size: small;
 
     color: var(--scheme-green);
+}
+
+.modal-due-date-div {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3px 0px;
+    margin-top: 40px;
+    width: auto;
+
+    right: 8px;
+
+    font-size: small;
+
+    color: var(--scheme-purple);
+}
+
+.modal-due-date {
+    margin: 0 0;
+    padding-left: 2px;
+    
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    color: var(--scheme-purple);
+
+    font-size: 1em;
+    letter-spacing: -1px;
+    text-transform: uppercase;
 }
 
 .description-title {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/taskbar.css';
 import { TaskModal } from './taskmodal.js';
 import { useTaskContext, TaskContextProvider } from '../TaskModalContext';
@@ -17,12 +17,15 @@ const TaskBarContext = ({ taskData, Circle_Color }) => {
 const TaskBar = ({ taskData, Circle_Color }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { taskTitle, setTaskTitle } = useTaskContext(); 
+    const { taskTitle, setTaskTitle, dueDate, setDueDate } = useTaskContext(); 
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
     };
 
+    const updateDueDate = (event) => {
+        setDueDate(event.target.value);
+    };
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -85,6 +88,8 @@ const TaskBar = ({ taskData, Circle_Color }) => {
                     <label>Due:</label>
                     <input className='due-date'
                         type='date'
+                        value={dueDate}
+                        onChange={updateDueDate}
                         placeholder='Due Date'
                         maxLength={15}
                     >

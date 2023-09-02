@@ -10,8 +10,8 @@ export const TaskModalContext = ({ closeModal, dateCreated }) => {
 };
 
 export const TaskModal = ({ closeModal, dateCreated, }) => {
-    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent } = useTaskContext();
 
+    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent } = useTaskContext();
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
@@ -28,6 +28,119 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
     const stopPropagation = (event) => {
         event.stopPropagation();
     };
+
+    const handlePriorityClick = (event) => {
+        const priorityDivs = document.querySelectorAll('.priority-comp');
+
+        //Remove the 'priority-selected' class from all priority divs and reset background color
+
+        priorityDivs.forEach((div) => {
+            div.classList.remove('priority-selected');
+            div.style.backgroundColor = 'transparent'; // Reset background color
+        });
+
+        // Add the 'priority-selected' class to the clicked priority div
+        const div = event.target.parentNode;
+        div.classList.add('priority-selected');
+
+        // Get the selected priority text
+        const selectedPriority = event.target.innerText;
+
+        let d1 = document.getElementById('p1')
+        d1.style.color = 'var(--scheme-red)'
+        let d2 = document.getElementById('p2')
+        d2.style.color = 'var(--scheme-orange)'
+        let d3 = document.getElementById('p3')
+        d3.style.color = 'var(--scheme-blue)'
+        let d4 = document.getElementById('p4')
+        d4.style.color = 'var(--grey-light)'
+
+        const events = {
+            firstEvent: function () {
+                d1.style.backgroundColor = 'var(--scheme-red)';
+                d1.style.color = 'white';
+            },
+            firstEventLeave: function () {
+                d1.style.backgroundColor = 'transparent';
+                d1.style.color = 'var(--scheme-red)';
+            },
+            secondEvent: function () {
+                d2.style.backgroundColor = 'var(--scheme-orange)';
+                d2.style.color = 'white';
+            },
+            secondEventLeave: function () {
+                d2.style.backgroundColor = 'transparent';
+                d2.style.color = 'var(--scheme-orange)';
+            },
+            thirdEvent: function () {
+                d3.style.backgroundColor = 'var(--scheme-blue)';
+                d3.style.color = 'white';
+            },
+            thirdEventLeave: function () {
+                d3.style.backgroundColor = 'transparent';
+                d3.style.color = 'var(--scheme-blue)';
+            },
+            lastEvent: function () {
+                d4.style.backgroundColor = 'var(--grey-light)';
+                d4.style.color = 'white';
+            },
+            lastEventLeave: function () {
+                d4.style.backgroundColor = 'transparent';
+                d4.style.color = 'var(--grey-light)';
+            },
+        }
+        
+        // Use a switch statement to set the background color based on the selected style
+        switch (selectedPriority) {
+            case 'P1':
+                d1.style.backgroundColor = 'var(--scheme-red)';
+                d1.style.color = 'white'
+
+                d2.addEventListener('mouseover', events.secondEvent);
+                d2.addEventListener('mouseleave', events.secondEventLeave);
+
+                d3.addEventListener('mouseover', events.thirdEvent);
+                d3.addEventListener('mouseleave', events.thirdEventLeave);
+
+                d4.addEventListener('mouseover', events.lastEvent);
+                d4.addEventListener('mouseleave', events.lastEventLeave);
+
+                break;
+            case 'P2':
+                d2.style.backgroundColor = 'var(--scheme-orange)';
+                d2.style.color = 'white'
+
+                //add in event listeners
+
+                break;
+            case 'P3':
+                d3.style.backgroundColor = 'var(--scheme-blue)';
+                d3.style.color = 'white'
+
+                //add in event listeners
+
+                break;
+            case 'P4':
+                d4.style.backgroundColor = 'var(--grey-light)';
+                d4.style.color = 'white'
+
+                //add in event listeners
+
+                break;
+            default:
+                // Handle any other cases if needed
+                div.style.backgroundColor = 'transparent';
+                document.getElementById('p1').style.color = 'var(--scheme-red)';
+                document.getElementById('p2').style.color = 'var(--scheme-orange)';
+                document.getElementById('p3').style.color = 'var(--scheme-blue)';
+                document.getElementById('p4').style.color = 'var(--grey-light)';
+                break;
+
+        }
+
+    };
+
+
 
     return (
         <div className="modal-dropback" onClick={closeModal}>
@@ -67,10 +180,12 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
                 </div>
 
                 <div className='priority-container'>
-                    <div className="priority1 priority-comp"><p>P1</p></div>
-                    <div className="priority2 priority-comp"><p>P2</p></div>
-                    <div className="priority3 priority-comp"><p>P3</p></div>
-                    <div className="priority4 priority-comp"><p>P4</p></div>
+                    <div className="priority1 priority-comp" id="p1"><p onClick={handlePriorityClick}>P1</p></div>
+                    <div className="priority2 priority-comp" id="p2"><p onClick={handlePriorityClick}>P2</p></div>
+                    <div className="priority3 priority-comp" id="p3"><p onClick={handlePriorityClick}>P3</p></div>
+                    <div className="priority4 priority-comp" id="p4"><p onClick={handlePriorityClick}>P4</p></div>
+
+
                 </div>
                 <button className='delete-button'>DELETE</button>
             </div>

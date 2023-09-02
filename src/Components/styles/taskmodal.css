@@ -93,7 +93,7 @@
 .modal-due-date {
     margin: 0 0;
     padding-left: 2px;
-    
+
     background-color: transparent;
     border: none;
     outline: none;
@@ -239,3 +239,4 @@
     cursor: pointer;
     background-color: hsl(3, 100%, 57%);
 }
+

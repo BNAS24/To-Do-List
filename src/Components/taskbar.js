@@ -4,17 +4,17 @@ import { TaskModal } from './taskmodal.js';
 import { useTaskContext, TaskContextProvider } from '../TaskModalContext';
 
 
-const TaskBarContext = ({ taskData, Circle_Color }) => {
+const TaskBarContext = ({ taskData, priorityChecker }) => {
     return (
         <>
             <TaskContextProvider>
-                <TaskBar taskData={taskData} Circle_Color={Circle_Color} />
+                <TaskBar taskData={taskData} circleColor={priorityChecker} />
             </TaskContextProvider>
         </>
     );
 };
 
-const TaskBar = ({ taskData, Circle_Color }) => {
+const TaskBar = ({ taskData, priorityChecker }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent } = useTaskContext();
@@ -34,6 +34,8 @@ const TaskBar = ({ taskData, Circle_Color }) => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+
 
     useEffect(() => {
         const escapeModal = (event) => {
@@ -63,7 +65,7 @@ const TaskBar = ({ taskData, Circle_Color }) => {
         <>
             <div className="taskbar" onClick={openModal}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" className="circleAll">
-                    <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke="#979797" strokeWidth="3" className={Circle_Color} onClick={completeButton} />
+                    <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke="#979797" strokeWidth="3" className={priorityChecker} onClick={completeButton} />
                 </svg>
 
                 <div className='task-titleDiv' onClick={stopPropagation}>

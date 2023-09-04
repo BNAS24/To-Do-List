@@ -42,28 +42,6 @@
 
 }
 
-/* 
-.circle1 {
-    fill: rgba(249, 117, 106, 0.16);
-    stroke: var(--scheme-red);
-}
-
-.circle2 {
-    fill: rgba(250, 156, 50, 0.16);
-    stroke: var(--scheme-orange);
-
-}
-
-.circle3 {
-    fill: rgba(92, 151, 246, 0.16);
-    stroke: var(--scheme-blue);
-} 
-
-These styles are not in use currently.
-*/
-
-
-
 .task-titleDiv {
     display: flex;
     justify-content: center;
@@ -187,14 +165,14 @@ These styles are not in use currently.
     color: var(--scheme-purple);
 }
 
-.dueDateDiv{
+.dueDateDiv {
     cursor: auto;
 }
 
 .due-date {
     margin: 0 0;
     padding-left: 2px;
-    
+
     background-color: transparent;
     border: none;
     outline: none;
@@ -208,4 +186,20 @@ These styles are not in use currently.
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: none;
+}
+
+.delete-button-taskbar {
+    position: absolute;
+    right: 14px;
+    bottom: 8px;
+    border-radius: 6px;
+    border: none;
+    background-color: transparent;
+    color: red;
+}
+
+.delete-button-taskbar:hover {
+    cursor: pointer;
+    background-color: hsl(3, 100%, 57%);
+    color: white;
 }

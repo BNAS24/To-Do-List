@@ -18,12 +18,16 @@ const TaskBarGroup = () => {
         setTasks([...tasks, newTask]);
     };
 
+    const deleteTask = (taskToDelete) => {
+        setTasks((prevTasks) => prevTasks.filter((task) => task !== taskToDelete));
+      };
+    
     return (
         <TaskContextProvider>
         <div className='taskgroup-wrapper'>
             <div className="taskgroup">
                 {tasks.map((task, index) => (
-                    <TaskBar key={index} taskData={task} />
+                    <TaskBar key={index} taskData={task} deleteTask={() => deleteTask(task)}/>
                 ))}
                 <NewTask createTask={createTask} />
             </div>

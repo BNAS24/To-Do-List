@@ -9,9 +9,9 @@ export const TaskModalContext = ({ closeModal, dateCreated }) => {
     );
 };
 
-export const TaskModal = ({ closeModal, dateCreated, }) => {
+export const TaskModal = ({ closeModal, dateCreated }) => {
 
-    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent, setSelectedPriority} = useTaskContext();
+    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent, setSelectedPriority } = useTaskContext();
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
@@ -46,7 +46,7 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
         const selectedPriority = event.target.innerText;
 
         setSelectedPriority(selectedPriority);
-    
+
         let d1 = document.getElementById('p1')
         d1.style.color = 'var(--scheme-red)'
         let d2 = document.getElementById('p2')
@@ -55,7 +55,7 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
         d3.style.color = 'var(--scheme-blue)'
         let d4 = document.getElementById('p4')
         d4.style.color = 'var(--grey-light)'
-    
+
         // Settting the background color based on the selected style
         switch (selectedPriority) {
             case 'P1':
@@ -130,7 +130,7 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
                     <div className="priority3 priority-comp" id="p3" onClick={handlePriorityClick}><p>P3</p></div>
                     <div className="priority4 priority-comp" id="p4" onClick={handlePriorityClick}><p>P4</p></div>
                 </div>
-                <button className='delete-button'>DELETE</button>
+                <button className='delete-button' >DELETE</button>
             </div>
         </div>
     );

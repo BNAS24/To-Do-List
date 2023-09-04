@@ -4,17 +4,17 @@ import { TaskModal } from './taskmodal.js';
 import { useTaskContext, TaskContextProvider } from '../TaskModalContext';
 
 
-const TaskBarContext = ({ taskData, priorityChecker }) => {
+const TaskBarContext = ({ taskData, priorityChecker, deleteTask }) => {
     return (
         <>
             <TaskContextProvider>
-                <TaskBar taskData={taskData} circleColor={priorityChecker} />
+                <TaskBar taskData={taskData} circleColor={priorityChecker} deleteTask={deleteTask}/>
             </TaskContextProvider>
         </>
     );
 };
 
-const TaskBar = ({ taskData, priorityChecker }) => {
+const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, selectedPriority } = useTaskContext();
@@ -109,7 +109,9 @@ const TaskBar = ({ taskData, priorityChecker }) => {
                     >
                     </input>
                 </div>
+                <button className='delete-button-taskbar' onClick={() => deleteTask(taskData)}>DELETE</button>
             </div>
+            
             {isModalOpen && <TaskModal dateCreated={taskData.timestamp} closeModal={closeModal} />}
         </>
     );

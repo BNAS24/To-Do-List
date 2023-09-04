@@ -109,10 +109,10 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
                     >
                     </input>
                 </div>
-                <button className='delete-button-taskbar' onClick={() => deleteTask(taskData)}>DELETE</button>
+                <button className='delete-button-taskbar' onClick={() => deleteTask(taskData) && stopPropagation}>DELETE</button>
             </div>
             
-            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} closeModal={closeModal} />}
+            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} closeModal={closeModal} deleteTask={deleteTask}/>}
         </>
     );
 }

@@ -9,9 +9,16 @@ export const TaskModalContext = ({ closeModal, dateCreated }) => {
     );
 };
 
-export const TaskModal = ({ closeModal, dateCreated }) => {
+export const TaskModal = ({ closeModal, dateCreated, deleteTask }) => {
 
     const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent, setSelectedPriority } = useTaskContext();
+
+    const handleDeleteClick = () => {
+        // Call the deleteTask function when the "DELETE" button is clicked
+        deleteTask();
+        // Close the modal or perform any other necessary actions
+        closeModal();
+    };
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
@@ -130,7 +137,7 @@ export const TaskModal = ({ closeModal, dateCreated }) => {
                     <div className="priority3 priority-comp" id="p3" onClick={handlePriorityClick}><p>P3</p></div>
                     <div className="priority4 priority-comp" id="p4" onClick={handlePriorityClick}><p>P4</p></div>
                 </div>
-                <button className='delete-button' >DELETE</button>
+                <button className='delete-button' onClick={handleDeleteClick} >DELETE</button>
             </div>
         </div>
     );

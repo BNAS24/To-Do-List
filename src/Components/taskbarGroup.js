@@ -11,23 +11,26 @@ const TaskBarGroup = () => {
     const formattedDate = `Created: ${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 
     const createTask = () => {
-        const newTask = { 
+        const newTask = {
+            id: Date.now(), 
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             timestamp: formattedDate
         };
         setTasks([...tasks, newTask]);
     };
 
-    const deleteTask = (taskToDelete) => {
-        setTasks((prevTasks) => prevTasks.filter((task) => task !== taskToDelete));
+    const deleteTask = (taskId) => {
+        const updatedTasks = tasks.filter((task) => task.id !== taskId);
+        setTasks(updatedTasks);
       };
+      
     
     return (
         <TaskContextProvider>
         <div className='taskgroup-wrapper'>
             <div className="taskgroup">
-                {tasks.map((task, index) => (
-                    <TaskBar key={index} taskData={task} deleteTask={() => deleteTask(task)}/>
+                {tasks.map((task) => (
+                    <TaskBar key={task.id} taskData={task} deleteTask={() => deleteTask(task.id)}/>
                 ))}
                 <NewTask createTask={createTask} />
             </div>

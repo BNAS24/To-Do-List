@@ -17,7 +17,7 @@ const TaskBarContext = ({ taskData, priorityChecker }) => {
 const TaskBar = ({ taskData, priorityChecker }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent } = useTaskContext();
+    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, selectedPriority } = useTaskContext();
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
@@ -51,6 +51,18 @@ const TaskBar = ({ taskData, priorityChecker }) => {
         };
     }, []);
 
+    const getPriorityColor = (selectedPriority) => {
+        switch (selectedPriority) {
+          case 'P1':
+            return 'var(--scheme-red)';
+          case 'P2':
+            return 'var(--scheme-orange)';
+          case 'P3':
+            return 'var(--scheme-blue)';
+          default:
+            return 'var(--grey-light)';
+        }
+      };
 
     const stopPropagation = (event) => {
         event.stopPropagation();
@@ -65,7 +77,7 @@ const TaskBar = ({ taskData, priorityChecker }) => {
         <>
             <div className="taskbar" onClick={openModal}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" className="circleAll">
-                    <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke="#979797" strokeWidth="3" className={priorityChecker} onClick={completeButton} />
+                    <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke={getPriorityColor(selectedPriority)} strokeWidth="3" className={priorityChecker} onClick={completeButton} />
                 </svg>
 
                 <div className='task-titleDiv' onClick={stopPropagation}>

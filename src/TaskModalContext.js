@@ -10,10 +10,11 @@ export const useTaskContext = () => {
 export const TaskContextProvider = ({ children }) => {
   const [taskTitle, setTaskTitle] = useState('');
   const [dueDate, setDueDate] = useState('');
-  const [descrpContent, setDescrpContent] = useState('')
+  const [descrpContent, setDescrpContent] = useState('');
+  const [selectedPriority, setSelectedPriority] = useState(null);
 
   return (
-    <TaskContext.Provider value={{ taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent }}>
+    <TaskContext.Provider value={{ taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent, selectedPriority, setSelectedPriority }}>
       {children}
     </TaskContext.Provider>
   );

@@ -147,7 +147,6 @@
 }
 
 .modal-description-text-area::-webkit-scrollbar-thumb {
-
     background-color: #888;
     border-radius: 2px;
 }
@@ -161,7 +160,7 @@
 
     height: 50%;
 
-    top: 25%;
+    top: 25.1%;
     right: 16px;
 }
 
@@ -170,11 +169,16 @@
 
     height: auto;
     width: 5vw;
+    margin-bottom: 2px;
 
     /* border: dashed 0.5px white; */
     color: white;
 
     text-align: center;
+}
+
+.priority-comp:hover {
+    cursor: pointer;
 }
 
 .priority1 {
@@ -183,8 +187,8 @@
 }
 
 .priority1:hover {
-    color: white;
-    background-color: var(--scheme-red);
+    color: white !important;
+    background-color: var(--scheme-red) !important;
 }
 
 .priority2 {
@@ -193,8 +197,8 @@
 }
 
 .priority2:hover {
-    color: white;
-    background-color: var(--scheme-orange);
+    color: white !important;
+    background-color: var(--scheme-orange) !important;
 }
 
 .priority3 {
@@ -203,8 +207,8 @@
 }
 
 .priority3:hover {
-    color: white;
-    background-color: var(--scheme-blue);
+    color: white !important;
+    background-color: var(--scheme-blue) !important;
 }
 
 .priority4 {
@@ -213,8 +217,8 @@
 }
 
 .priority4:hover {
-    color: white;
-    background-color: var(--grey-light);
+    color: white !important;
+    background-color: var(--grey-light) !important;
 }
 
 .delete-button {

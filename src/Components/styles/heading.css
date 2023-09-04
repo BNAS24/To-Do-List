@@ -29,7 +29,6 @@
 
 .headingText {
   display: flex;
-  flex-direction: start;
   justify-content: center;
 
   width: auto;

@@ -112,10 +112,7 @@ const TaskBar = ({ taskData, priorityChecker }) => {
             </div>
             {isModalOpen && <TaskModal dateCreated={taskData.timestamp} closeModal={closeModal} />}
         </>
-
     );
 }
 
-// export default TaskBar;
-
-export default TaskBarContext
+export default TaskBarContext;

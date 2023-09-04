@@ -14,7 +14,7 @@ export const TaskContextProvider = ({ children }) => {
   const [selectedPriority, setSelectedPriority] = useState(null);
 
   return (
-    <TaskContext.Provider value={{ taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent, selectedPriority, setSelectedPriority }}>
+    <TaskContext.Provider value={{ taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent, selectedPriority, setSelectedPriority}}>
       {children}
     </TaskContext.Provider>
   );

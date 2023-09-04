@@ -11,7 +11,7 @@ export const TaskModalContext = ({ closeModal, dateCreated }) => {
 
 export const TaskModal = ({ closeModal, dateCreated, }) => {
 
-    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent,setSelectedPriority} = useTaskContext();
+    const { taskTitle, setTaskTitle, dueDate, setDueDate, descrpContent, setDescrpContent, setSelectedPriority} = useTaskContext();
 
     const updateTitle = (event) => {
         setTaskTitle(event.target.value);
@@ -45,6 +45,8 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
         // Get the selected priority text
         const selectedPriority = event.target.innerText;
 
+        setSelectedPriority(selectedPriority);
+    
         let d1 = document.getElementById('p1')
         d1.style.color = 'var(--scheme-red)'
         let d2 = document.getElementById('p2')
@@ -53,43 +55,38 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
         d3.style.color = 'var(--scheme-blue)'
         let d4 = document.getElementById('p4')
         d4.style.color = 'var(--grey-light)'
-
-
-        // Use a switch statement to set the background color based on the selected style
+    
+        // Settting the background color based on the selected style
         switch (selectedPriority) {
             case 'P1':
-              d1.style.backgroundColor = 'var(--scheme-red)';
-              d1.style.color = 'white';
-              setSelectedPriority('P1'); // Update selectedPriority state in the task context
-              break;
+                d1.style.backgroundColor = 'var(--scheme-red)';
+                d1.style.color = 'white';
+                setSelectedPriority('P1');
+                break;
             case 'P2':
-              d2.style.backgroundColor = 'var(--scheme-orange)';
-              d2.style.color = 'white';
-              setSelectedPriority('P2'); // Update selectedPriority state in the task context
-              break;
+                d2.style.backgroundColor = 'var(--scheme-orange)';
+                d2.style.color = 'white';
+                setSelectedPriority('P2');
+                break;
             case 'P3':
-              d3.style.backgroundColor = 'var(--scheme-blue)';
-              d3.style.color = 'white';
-              setSelectedPriority('P3'); // Update selectedPriority state in the task context
-              break;
+                d3.style.backgroundColor = 'var(--scheme-blue)';
+                d3.style.color = 'white';
+                setSelectedPriority('P3');
+                break;
             case 'P4':
-              d4.style.backgroundColor = 'var(--grey-light)';
-              d4.style.color = 'white';
-              setSelectedPriority('P4'); // Update selectedPriority state in the task context
-              break;
+                d4.style.backgroundColor = 'var(--grey-light)';
+                d4.style.color = 'white';
+                setSelectedPriority('P4');
+                break;
             default:
-              div.style.backgroundColor = 'transparent';
-              document.getElementById('p1').style.color = 'var(--scheme-red)';
-              document.getElementById('p2').style.color = 'var(--scheme-orange)';
-              document.getElementById('p3').style.color = 'var(--scheme-blue)';
-              document.getElementById('p4').style.color = 'var(--grey-light)';
-              setSelectedPriority(null); // Reset selectedPriority state in the task context
-              break;
-          }
-
-    };
-
-
+                div.style.backgroundColor = 'transparent';
+                document.getElementById('p1').style.color = 'var(--scheme-red)';
+                document.getElementById('p2').style.color = 'var(--scheme-orange)';
+                document.getElementById('p3').style.color = 'var(--scheme-blue)';
+                document.getElementById('p4').style.color = 'var(--grey-light)';
+                break;
+        }
+    }
 
     return (
         <div className="modal-dropback" onClick={closeModal}>
@@ -127,20 +124,16 @@ export const TaskModal = ({ closeModal, dateCreated, }) => {
                     >
                     </textarea>
                 </div>
-
                 <div className='priority-container'>
                     <div className="priority1 priority-comp" id="p1" onClick={handlePriorityClick}><p>P1</p></div>
                     <div className="priority2 priority-comp" id="p2" onClick={handlePriorityClick}><p>P2</p></div>
                     <div className="priority3 priority-comp" id="p3" onClick={handlePriorityClick}><p>P3</p></div>
                     <div className="priority4 priority-comp" id="p4" onClick={handlePriorityClick}><p>P4</p></div>
-
-
                 </div>
                 <button className='delete-button'>DELETE</button>
             </div>
         </div>
     );
-
 }
 
 

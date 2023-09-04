@@ -68,16 +68,11 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
         event.stopPropagation();
     };
 
-    const completeButton = (event) => {
-        stopPropagation(event);
-        // Additional functionality will be added here for the special characteristics of the completebutton
-    }
-
     return (
         <>
             <div className="taskbar" onClick={openModal}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" className="circleAll">
-                    <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke={getPriorityColor(selectedPriority)} strokeWidth="3" className={priorityChecker} onClick={completeButton} />
+                    <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke={getPriorityColor(selectedPriority)} strokeWidth="3" className={priorityChecker} onClick={() => deleteTask(taskData)} />
                 </svg>
 
                 <div className='task-titleDiv' onClick={stopPropagation}>

@@ -3,12 +3,15 @@ import './styles/taskbar.css';
 import { TaskModal } from './taskmodal.js';
 import { useTaskContext, TaskContextProvider } from '../TaskModalContext';
 
-
 const TaskBarContext = ({ taskData, priorityChecker, deleteTask }) => {
     return (
         <>
             <TaskContextProvider>
-                <TaskBar taskData={taskData} circleColor={priorityChecker} deleteTask={deleteTask}/>
+                <TaskBar
+                    taskData={taskData}
+                    circleColor={priorityChecker}
+                    deleteTask={deleteTask}
+                />
             </TaskContextProvider>
         </>
     );
@@ -35,8 +38,6 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
         setIsModalOpen(false);
     };
 
-
-
     useEffect(() => {
         const escapeModal = (event) => {
             if (event.key === "Escape") {
@@ -53,16 +54,16 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
 
     const getPriorityColor = (selectedPriority) => {
         switch (selectedPriority) {
-          case 'P1':
-            return 'var(--scheme-red)';
-          case 'P2':
-            return 'var(--scheme-orange)';
-          case 'P3':
-            return 'var(--scheme-blue)';
-          default:
-            return 'var(--grey-light)';
+            case 'P1':
+                return 'var(--scheme-red)';
+            case 'P2':
+                return 'var(--scheme-orange)';
+            case 'P3':
+                return 'var(--scheme-blue)';
+            default:
+                return 'var(--grey-light)';
         }
-      };
+    };
 
     const stopPropagation = (event) => {
         event.stopPropagation();
@@ -70,44 +71,103 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
 
     return (
         <>
-            <div className="taskbar" onClick={openModal}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" className="circleAll">
-                    <circle cx="20" cy="20" r="18.5" fill="#979797" fillOpacity="0.16" stroke={getPriorityColor(selectedPriority)} strokeWidth="3" className={priorityChecker} onClick={() => deleteTask(taskData)} />
-                </svg>
-
-                <div className='task-titleDiv' onClick={stopPropagation}>
-                    <input className='task-title'
-                        type='text'
-                        value={taskTitle}
-                        onChange={updateTitle}
-                        placeholder='Enter Title'
-                        maxLength={100}
-                        onClick={stopPropagation}
+            <div
+                className="taskbar"
+                onClick={openModal}
+            >
+                <div
+                    className="taskbar-header"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        className="circleAll"
                     >
-                    </input>
-                </div>
+                        <circle
+                            cx="20"
+                            cy="20"
+                            r="18.5"
+                            fill="#979797"
+                            fillOpacity="0.16"
+                            stroke={getPriorityColor(selectedPriority)}
+                            strokeWidth="3"
+                            className={priorityChecker}
+                            onClick={() => deleteTask(taskData)} />
+                    </svg>
 
-                <div className='descriptionDiv' >
-                    <p className='description' onClick={stopPropagation}>{descrpContent}</p>
-                </div>
-                <div className='dateCreatedDiv' onClick={stopPropagation}>
-                    <p className='date-created' onClick={stopPropagation}>{taskData.timestamp}</p>
-                </div>
-                <div className='dueDateDiv' onClick={stopPropagation}>
-                    <label>Due:</label>
-                    <input className='due-date'
-                        type='date'
-                        value={dueDate}
-                        onChange={updateDueDate}
-                        placeholder='Due Date'
-                        maxLength={15}
+                    <div
+                        className='task-titleDiv'
+                        onClick={stopPropagation}>
+                        <input
+                            className='task-title'
+                            type='text'
+                            value={taskTitle}
+                            onChange={updateTitle}
+                            placeholder='Enter Title'
+                            maxLength={100}
+                            onClick={stopPropagation}
+                        >
+                        </input>
+                    </div>
+
+                    <div
+                        className='date-group'
                     >
-                    </input>
+                        <div
+                            className='dateCreatedDiv'
+                            onClick={stopPropagation}
+                        >
+                            <p
+                                className='date-created'
+                                onClick={stopPropagation}
+                            >
+                                {taskData.timestamp}
+                            </p>
+                        </div>
+                        <div
+                            className='dueDateDiv'
+                            onClick={stopPropagation}>
+                            <label>Due:</label>
+                            <input
+                                className='due-date'
+                                type='date'
+                                value={dueDate}
+                                onChange={updateDueDate}
+                                placeholder='Due Date'
+                                maxLength={15}
+                            >
+                            </input>
+                        </div>
+                    </div>
+
                 </div>
-                <button className='delete-button-taskbar' onClick={() => deleteTask(taskData) && stopPropagation}>DELETE</button>
+                <div
+                    className='descriptionDiv' >
+                    <p
+                        className='description'
+                        onClick={stopPropagation}>
+                        {descrpContent}
+                    </p>
+                </div>
+                <button
+                    className='delete-button-taskbar'
+                    onClick={() => deleteTask(taskData) && stopPropagation}
+                    type='button'
+                >
+                    DELETE
+                </button>
             </div>
-            
-            {isModalOpen && <TaskModal dateCreated={taskData.timestamp} closeModal={closeModal} deleteTask={deleteTask}/>}
+
+            {isModalOpen &&
+                <TaskModal
+                    dateCreated={taskData.timestamp}
+                    closeModal={closeModal}
+                    deleteTask={deleteTask}
+                />
+            }
         </>
     );
 }

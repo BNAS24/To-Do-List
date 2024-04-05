@@ -65,7 +65,7 @@
 .modal-date-created {
     position: absolute;
 
-    right: 24px;
+    right: 28px;
     margin-top: 24px;
 
     font-size: small;
@@ -121,7 +121,7 @@
 
     height: 50%;
     width: 80%;
-    padding: 8px 8px;
+    padding: 16px 8px 16px 16px;
 
     background-color: transparent;
     border-radius: 16px 2px 2px 16px;

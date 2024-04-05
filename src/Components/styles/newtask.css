@@ -1,21 +1,14 @@
-.newTask {
-  position: absolute;
-
-  top: 92%;
-  left: 50%;
-
-  transform: translate(-50%, 50%);
+.newTask{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 99;
 }
 
 .newTask:hover {
-  position: absolute;
-
-  top: 91.3%;
-  left: 50%;
-
-
   cursor: pointer;
-  filter: brightness(1.2);
+  transform: translate(0%, -10%);
 }
 
 

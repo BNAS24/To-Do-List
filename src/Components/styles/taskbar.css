@@ -1,18 +1,16 @@
+
 .taskbar {
     display: flex;
-    position: relative;
-    flex-direction: row;
-    flex-shrink: 0;
-
-    width: 510px;
-    height: 132px;
-    /*border: dashed 1px white;*/
-
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 90%;
+    height: 144px;
+    margin-top: 16px;
+    padding: 8px 16px 8px 8px;
     background-color: var(--grey-taskbar);
     box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
-
-    margin-top: 16px;
 }
 
 .taskbar:hover {
@@ -22,15 +20,21 @@
 
 .taskbar1 {
     margin-top: 1px;
+}
 
+.taskbar-header {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .circleAll {
     flex-shrink: 0;
 
-    margin: 24px 0 0 16px;
+    /* margin: 24px 0 0 16px; */
 }
-
 
 .circleAll:hover {
     background-image: url('https://www.svgrepo.com/show/17548/checked.svg');
@@ -43,20 +47,16 @@
 
 .task-titleDiv {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     flex-wrap: nowrap;
-    overflow: hidden;
-
-    height: 30px;
-    width: 120px;
-    max-width: 147px;
-    margin-top: 26.2px;
-    margin-left: 8px;
-
-    /* border: dashed 1px white; */
-
+    /* align-self: flex-start; */
+    
+    height: 100%;
+    width: 100%;
+    
     white-space: nowrap;
+    overflow: hidden;
 }
 
 .task-title {
@@ -83,15 +83,11 @@
 
 .descriptionDiv {
     display: flex;
-    position: absolute;
     align-items: start;
     flex-shrink: 0;
 
-    width: 372px;
+    width: 100%;
     height: auto;
-
-    margin-top: 73px;
-    margin-left: 64px;
 
     color: white;
     overflow: hidden;
@@ -100,38 +96,45 @@
 }
 
 .description {
-    display: -webkit-box; /* Set display property to -webkit-box for compatibility */
-    -webkit-line-clamp: 2; /* Limit to two lines of text */
-    -webkit-box-orient: vertical; /* Set box orientation to vertical */
+    display: -webkit-box;
+    /* Set display property to -webkit-box for compatibility */
+    -webkit-line-clamp: 2;
+    /* Limit to two lines of text */
+    -webkit-box-orient: vertical;
+    /* Set box orientation to vertical */
 
     margin: 0;
-    max-width: 373px;
 
     font-size: 1em;
     font-style: normal;
     font-weight: 200;
     line-height: 150%;
     /* 24px */
-  
 
 
-    overflow: hidden; /* Hide overflow content */
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
+
+    overflow: hidden;
+    /* Hide overflow content */
+    text-overflow: ellipsis;
+    /* Add ellipsis for overflow */
     color: white;
 }
 
+.date-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+    height: auto;
+    width: 30%;
+}
 
 .dateCreatedDiv {
     display: flex;
-    position: absolute;
-    justify-content: center;
+
     align-items: center;
 
-    height: 2.5rem;
     width: auto;
-    margin-top: 20px;
-    margin-left: 189px;
-    padding: 3px 3px;
 
     color: var(--scheme-green);
 
@@ -145,18 +148,17 @@
 
 .date-created {
     margin: 0 0;
+    white-space: nowrap;
 }
 
 .dueDateDiv {
     display: flex;
-    position: absolute;
     align-items: center;
     justify-content: center;
 
     width: 160px;
     height: 2.5rem;
-    margin-top: 20px;
-    margin-left: 347px;
+
     padding: 3px 0px;
 
     /* border: dashed 0.5px white; */
@@ -188,7 +190,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .delete-button-taskbar {
-    position: absolute;
+    align-self: flex-end;
     right: 14px;
     bottom: 8px;
     border-radius: 6px;

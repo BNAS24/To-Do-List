@@ -1,1 +1,44 @@
 /*This file is useless for the currrent moment*/
+
+* {
+    /*This is the font's url https://fonts.google.com/specimen/Inter?query=inter */
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --grey-dark: #1e1e1e;
+    --grey-medium: #282828;
+    --grey-light: #979797;
+    --grey-taskbar: #525252;
+    --scheme-orange: #FA9C32;
+    --scheme-red: #F9756A;
+    --scheme-blue: #5C97F6;
+    --scheme-green: #50B45C;
+    --scheme-purple: #a175f5;
+
+    --heading1-size: 2.441rem;
+    --heading2-size: 1.953rem;
+    --heading3-size: 1.563rem;
+    --heading4-size: 1.25rem;
+    --heading5-size: 1rem;
+    --heading6-size: 0.8rem;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey-dark);
+    width: 100%;
+    height: 100vh;
+    margin: 0 0;
+    /* border: dashed 1px white; */
+}
+
+body {
+    margin: 0 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--grey-dark);
+}

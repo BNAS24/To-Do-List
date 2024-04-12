@@ -30,23 +30,42 @@ const Heading = () => {
       clickAudio: clickAudio,
       dingAudio: dingAudio,
     });
-    
+
   }, []);
 
   // Function to play bubble sound
   const playSound = () => {
     const clickAudio = sounds?.clickAudio;
-    clickAudio.currentTime = 0; 
-    console.log(clickAudio.play());// Reset audio to the beginning
-    clickAudio?.play();
+    if (clickAudio) {
+      clickAudio.currentTime = 0; // Reset audio to the beginning
+      const bubble = async () => {
+        try {
+          await clickAudio.play();
+        } catch (err) {
+          console.error(err);
+          console.log('Sound couldn\'t be played');
+        }
+      };
+      bubble();
+    }
   };
-
+  
   const playDing = () => {
     const dingAudio = sounds?.dingAudio;
-    dingAudio.currentTime = 0; 
-    console.log(dingAudio.play());// Reset audio to the beginning
-    dingAudio?.play();
+    if (dingAudio) {
+      dingAudio.currentTime = 0; // Reset audio to the beginning
+      const ding = async () => {
+        try {
+          await dingAudio.play();
+        } catch (err) {
+          console.error(err);
+          console.log('Sound couldn\'t be played');
+        }
+      };
+      ding();
+    }
   };
+  
 
   const createTask = () => {
     const newTask = {

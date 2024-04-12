@@ -36,14 +36,16 @@ const Heading = () => {
   // Function to play bubble sound
   const playSound = () => {
     const clickAudio = sounds?.clickAudio;
-    clickAudio.currentTime = 0; // Reset audio to the beginning
-    clickAudio.play();
+    clickAudio.currentTime = 0; 
+    console.log(clickAudio.play());// Reset audio to the beginning
+    clickAudio?.play();
   };
 
   const playDing = () => {
     const dingAudio = sounds?.dingAudio;
-    dingAudio.currentTime = 0; // Reset audio to the beginning
-    dingAudio.play();
+    dingAudio.currentTime = 0; 
+    console.log(dingAudio.play());// Reset audio to the beginning
+    dingAudio?.play();
   };
 
   const createTask = () => {

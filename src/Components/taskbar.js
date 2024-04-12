@@ -153,15 +153,24 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
                     className='sm-screen-group'
                     onClick={stopPropagation}
                 >
-                    <p
+                    {/* <p
                         className='due-date-text-sm-screen'
                     >
                         Due Date
-                    </p>
+                    </p> */}
+                    <label
+                        className='due-date-text-sm-screen'
+                        htmlFor="sm-screen-input"
+                    >
+                        Due Date
+                    </label>
                     <input
                         className='sm-screen-input'
                         type='date'
                         id="sm-screen-input"
+                        name="date"
+                        placeholder='mm/dd/yyyy'
+                        dataDateFormat="mm-dd-yyyy"
                         value={dueDate}
                         onChange={updateDueDate}
                     />

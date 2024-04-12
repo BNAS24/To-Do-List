@@ -9,8 +9,6 @@
   height: 80%;
   gap: 8px;
 
-  margin-top: 50px;
-
   border-radius: 38px;
   box-shadow: 1px 4px 17px 6px rgba(0, 0, 0, 0.25);
   background: var(--grey-medium, #282828);

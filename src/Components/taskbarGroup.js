@@ -7,6 +7,8 @@ const TaskBarGroup = ({
     deleteTask,
 }) => {
 
+    console.log('task:', tasks)
+
     return (
         <TaskContextProvider>
             <div
@@ -14,10 +16,11 @@ const TaskBarGroup = ({
                 <div
                     className='taskgroup'>
                     {tasks?.map((task) => (
-                        <TaskBar
+                        < TaskBar
                             key={task.id}
                             taskData={task}
-                            deleteTask={() => deleteTask(task.id)} />
+                            deleteTask={() => deleteTask(task.id)}
+                        />
                     ))}
                 </div>
             </div>

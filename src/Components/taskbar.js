@@ -160,21 +160,22 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
                     </p> */}
                     <label
                         className='due-date-text-sm-screen'
-                        htmlFor="sm-screen-input"
+                        // htmlFor="sm-screen-input"
+                        htmlFor={`sm-screen-input-${taskData.id}`}
                     >
                         Due Date
                     </label>
                     <input
                         className='sm-screen-input'
                         type='date'
-                        id="sm-screen-input"
+                        // id="sm-screen-input"
+                        id={`sm-screen-input-${taskData.id}`}
                         name="date"
                         placeholder='mm/dd/yyyy'
-                        dataDateFormat="mm-dd-yyyy"
+                        datadateformat="mm-dd-yyyy"
                         value={dueDate}
                         onChange={updateDueDate}
                     />
-
                 </div>
                 <div
                     className='descriptionDiv'

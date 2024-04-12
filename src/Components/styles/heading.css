@@ -14,6 +14,7 @@
   border-radius: 38px;
   box-shadow: 1px 4px 17px 6px rgba(0, 0, 0, 0.25);
   background: var(--grey-medium, #282828);
+  overflow: hidden;
 }
 
 .headingGroup {
@@ -22,7 +23,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* flex-wrap: nowrap; */
   width: 90%;
   margin-top: 16px;
   padding: 0 24px;
@@ -34,19 +34,32 @@
   justify-content: center;
 
   width: 80%;
-  height: 41.827px;
 
   background-color: transparent;
   border: none;
   color: white;
 
   font-size: var(--heading1-size);
-  line-height: 150%;
   letter-spacing: -0.43px;
+  outline: none;
 
   white-space: nowrap;
 }
 
 .settings:hover {
   cursor: pointer;
+}
+
+/*Screen sizes for 414px and lower*/
+@media screen and (max-width: 480px) {
+  .headingText {
+    font-size: var(--heading3-size);
+  }
+}
+
+/*Screen sizes for 700 and lower*/
+@media screen and (max-width: 768px) {
+  .headingGroup {
+    padding: 0 0;
+  }
 }

@@ -1,4 +1,3 @@
-
 .taskbar {
     display: flex;
     flex-direction: column;
@@ -11,6 +10,7 @@
     background-color: var(--grey-taskbar);
     box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
+    overflow: hidden;
 }
 
 .taskbar:hover {
@@ -51,26 +51,22 @@
     align-items: center;
     flex-wrap: nowrap;
     /* align-self: flex-start; */
-    
+
     height: 100%;
     width: 100%;
-    
+
     white-space: nowrap;
     overflow: hidden;
 }
 
 .task-title {
+    display: -webkit-flex;
     display: flex;
     justify-content: flex-start;
 
     margin: 0 0;
-
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 150%;
-    /*30px*/
-    letter-spacing: -0.22px;
+    width: 100%;
+    height: 100%;
 
     background-color: transparent;
     outline: none;
@@ -78,12 +74,13 @@
 
     color: white;
 
+    font-size: var(--heading3-size);
     text-overflow: ellipsis;
 }
 
 .descriptionDiv {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     flex-shrink: 0;
 
     width: 100%;
@@ -109,42 +106,35 @@
     font-style: normal;
     font-weight: 200;
     line-height: 150%;
-    /* 24px */
-
-
 
     overflow: hidden;
-    /* Hide overflow content */
     text-overflow: ellipsis;
-    /* Add ellipsis for overflow */
     color: white;
 }
 
 .date-group {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-self: flex-end;
-    height: auto;
-    width: 30%;
+    align-items: flex-start;
+    flex-shrink: 0;
+    /* border: 1px dashed black; */
+    overflow: hidden;
+}
+
+.date-sm-screen-accessibility {
+    display: none;
 }
 
 .dateCreatedDiv {
     display: flex;
-
     align-items: center;
-
-    width: auto;
-
     color: var(--scheme-green);
-
     /* border: dashed 0.5px white; */
 }
 
 .dateCreatedDiv:hover {
     cursor: auto;
 }
-
 
 .date-created {
     margin: 0 0;
@@ -154,15 +144,6 @@
 .dueDateDiv {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    width: 160px;
-    height: 2.5rem;
-
-    padding: 3px 0px;
-
-    /* border: dashed 0.5px white; */
-
     color: var(--scheme-purple);
 }
 
@@ -185,9 +166,10 @@
     text-transform: uppercase;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: none;
-}
+} */
 
 .delete-button-taskbar {
     align-self: flex-end;
@@ -205,3 +187,76 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: hsl(3, 100%, 57%);
     color: white;
 }
+
+.sm-screen-group {
+    display: none;
+}
+
+/* Breakpoints for styles*/
+
+/*Screen sizes for 480px and lower*/
+@media screen and (max-width: 480px) {
+    .circleAll {
+        width: 30px;
+        height: 30px;
+    }
+
+    .task-title {
+        font-size: var(--heading4-size);
+    }
+
+    .date-group {
+        display: none;
+        align-items: center;
+    }
+
+    .dateCreatedDiv {
+        display: none;
+    }
+
+    .dueDateDiv {
+        display: none;
+    }
+
+    .sm-screen-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .due-date-text-sm-screen {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-wrap: nowrap;
+        margin: 0 0;
+        color: var(--scheme-purple);
+    }
+
+    .sm-screen-input {
+        color: var(--scheme-purple);
+        background-color: transparent;
+        text-transform: uppercase;
+        border: var(--scheme-purple);
+        outline: none;
+        /* width: 100%; */
+        padding: 3px 0;
+        z-index: 100;
+    }
+
+    .sm-screen-input:hover {
+        cursor: pointer;
+    }
+
+    .description {
+        font-size: var(--heading6-size);
+    }
+
+    .delete-button-taskbar {
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {}

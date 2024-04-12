@@ -130,9 +130,12 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
                         <div
                             className='dueDateDiv'
                             onClick={stopPropagation}>
-                            <label>Due:</label>
+                            <label
+                                className='due-date-text'
+                            >Due:
+                            </label>
                             <input
-                                className='due-date'
+                                className='due-date due-date-text'
                                 type='date'
                                 value={dueDate}
                                 onChange={updateDueDate}
@@ -141,14 +144,36 @@ const TaskBar = ({ taskData, priorityChecker, deleteTask }) => {
                             >
                             </input>
                         </div>
+
+
                     </div>
 
                 </div>
                 <div
-                    className='descriptionDiv' >
+                    className='sm-screen-group'
+                    onClick={stopPropagation}
+                >
+                    <p
+                        className='due-date-text-sm-screen'
+                    >
+                        Due Date
+                    </p>
+                    <input
+                        className='sm-screen-input'
+                        type='date'
+                        id="sm-screen-input"
+                        value={dueDate}
+                        onChange={updateDueDate}
+                    />
+
+                </div>
+                <div
+                    className='descriptionDiv'
+                >
                     <p
                         className='description'
-                        onClick={stopPropagation}>
+                        onClick={stopPropagation}
+                    >
                         {descrpContent}
                     </p>
                 </div>

@@ -10,9 +10,33 @@ const Heading = () => {
   const clickAudio = new Audio('/tap-sound.mp3');
   const dingAudio = new Audio('/bell-ding.mp3');
 
-  const playSound = () => clickAudio.play();
+  dingAudio.volume = 0.3; // Set the volume to 50%
+  clickAudio.volume = 0.3; // Set the volume to 50%
 
-  const playDing = () => dingAudio.play();
+  // Function to play bubble sound
+  const playSound = async () => {
+    try {
+      await clickAudio.play();
+    } catch (error) {
+      console.error("Failed to play audio:", error);
+      // Implement fallback mechanism here, e.g., displaying a message to the user
+      alert("Failed to play audio. Please try again later.");
+    }
+  };
+
+  const playDing = async () => {
+    try {
+      if (dingAudio.src) {
+        await dingAudio.play();
+      } else {
+        console.error("Audio source not provided");
+      }
+    } catch (error) {
+      console.error("Failed to play audio:", error);
+      // Implement fallback mechanism here, e.g., displaying a message to the user
+      alert("Failed to play audio. Please try again later.");
+    }
+  };
 
   const createTask = () => {
     const newTask = {
@@ -20,7 +44,7 @@ const Heading = () => {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       timestamp: formattedDate
     };
-    setTasks([newTask,...tasks]);
+    setTasks([newTask, ...tasks]);
     playDing();
   };
 

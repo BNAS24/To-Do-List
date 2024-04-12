@@ -1,5 +1,3 @@
-/*This file is useless for the currrent moment*/
-
 * {
     /*This is the font's url https://fonts.google.com/specimen/Inter?query=inter */
     font-family: 'Inter', sans-serif;
@@ -7,6 +5,7 @@
 }
 
 :root {
+    /*Global color variables */
     --grey-dark: #1e1e1e;
     --grey-medium: #282828;
     --grey-light: #979797;
@@ -17,12 +16,20 @@
     --scheme-green: #50B45C;
     --scheme-purple: #a175f5;
 
+    /*Global Heading Variables*/
     --heading1-size: 2.441rem;
     --heading2-size: 1.953rem;
     --heading3-size: 1.563rem;
     --heading4-size: 1.25rem;
     --heading5-size: 1rem;
     --heading6-size: 0.8rem;
+
+    /*Media Query Variables */
+    --sm-screen: 480px;
+    --md-screen: 768px;
+    --lg-screen: 1024px;
+    --xl-screen: 1280px;
+    --xxl-screen: 1440px;
 }
 
 #root {
@@ -41,4 +48,8 @@ body {
     width: 100%;
     height: 100%;
     background-color: var(--grey-dark);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-left: -8px; /* Adjust the value as needed */
 }

@@ -6,7 +6,7 @@ export const NewTask = ({ createTask }) => {
         <>
             <div 
             className='newTask' 
-            onClick={createTask}
+            onClick={() => createTask()}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

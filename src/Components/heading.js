@@ -3,10 +3,6 @@ import { NewTask } from './newtask';
 import './styles/heading.css';
 import TaskBarGroup from './taskbarGroup';
 
-// Import audio files
-import tapSoundFile from '../assets/tap-sound.mp3';
-import bellDingFile from '../assets/bell-ding.mp3';
-
 const Heading = () => {
   const [tasks, setTasks] = useState([]);
   const currentDate = new Date();
@@ -17,55 +13,32 @@ const Heading = () => {
   });
 
   useEffect(() => {
-    // Create audio elements
-    const clickAudio = new Audio(tapSoundFile);
-    const dingAudio = new Audio(bellDingFile);
+    const clickAudio = new Audio('/tap-sound.mp3');
+    const dingAudio = new Audio('/bell-ding.mp3');
 
-    // Set volume
-    clickAudio.volume = 0.3;
-    dingAudio.volume = 0.3;
+    dingAudio.volume = 0.3; // Set the volume to 50%
+    clickAudio.volume = 0.3; // Set the volume to 50%
 
-    // Update state with audio elements
-    setSounds({
-      clickAudio: clickAudio,
+    setSounds((prevState) => ({
+      ...prevState,
       dingAudio: dingAudio,
-    });
-
-  }, []);
+      clickAudio: clickAudio,
+    }))
+  }, [])
 
   // Function to play bubble sound
   const playSound = () => {
-    const clickAudio = sounds?.clickAudio;
-    if (clickAudio) {
-      clickAudio.currentTime = 0; // Reset audio to the beginning
-      const bubble = async () => {
-        try {
-          await clickAudio.play();
-        } catch (err) {
-          console.error(err);
-          console.log('Sound couldn\'t be played');
-        }
-      };
-      bubble();
-    }
+    const clickAudio = sounds.clickAudio;
+    clickAudio.currentTime = 0; // Reset audio to the beginning
+    clickAudio.play();
   };
-  
+
   const playDing = () => {
-    const dingAudio = sounds?.dingAudio;
-    if (dingAudio) {
-      dingAudio.currentTime = 0; // Reset audio to the beginning
-      const ding = async () => {
-        try {
-          await dingAudio.play();
-        } catch (err) {
-          console.error(err);
-          console.log('Sound couldn\'t be played');
-        }
-      };
-      ding();
-    }
+    const dingAudio = sounds.dingAudio;
+    dingAudio.currentTime = 0; // Reset audio to the beginning
+    dingAudio.play();
   };
-  
+
 
   const createTask = () => {
     const newTask = {

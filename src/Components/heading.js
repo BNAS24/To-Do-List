@@ -3,6 +3,10 @@ import { NewTask } from './newtask';
 import './styles/heading.css';
 import TaskBarGroup from './taskbarGroup';
 
+// Import audio files
+import tapSoundFile from '../assets/tap-sound.mp3';
+import bellDingFile from '../assets/bell-ding.mp3';
+
 const Heading = () => {
   const [tasks, setTasks] = useState([]);
   const currentDate = new Date();
@@ -13,39 +17,29 @@ const Heading = () => {
   });
 
   useEffect(() => {
-    const loadAudio = (audioFile, callback) => {
-      const audioElement = new Audio(audioFile);
-      audioElement.addEventListener('canplaythrough', () => {
-        callback(audioElement);
-      });
-    };
+    // Create audio elements
+    const clickAudio = new Audio(tapSoundFile);
+    const dingAudio = new Audio(bellDingFile);
 
-    loadAudio('/tap-sound.mp3', (clickAudio) => {
-      clickAudio.volume = 0.3;
-      setSounds((prevState) => ({ ...prevState, clickAudio }));
-    });
+    // Set volume
+    clickAudio.volume = 0.3;
+    dingAudio.volume = 0.3;
 
-    loadAudio('/bell-ding.mp3', (dingAudio) => {
-      dingAudio.volume = 0.3;
-      setSounds((prevState) => ({ ...prevState, dingAudio }));
-    });
+    // Update state with audio elements
+    setSounds({ clickAudio, dingAudio });
   }, []);
 
   // Function to play bubble sound
   const playSound = () => {
     const clickAudio = sounds.clickAudio;
-    if (clickAudio) {
-      clickAudio.currentTime = 0; // Reset audio to the beginning
-      clickAudio.play();
-    }
+    clickAudio.currentTime = 0; // Reset audio to the beginning
+    clickAudio.play();
   };
 
   const playDing = () => {
     const dingAudio = sounds.dingAudio;
-    if (dingAudio) {
-      dingAudio.currentTime = 0;
-      dingAudio.play();
-    }
+    dingAudio.currentTime = 0; // Reset audio to the beginning
+    dingAudio.play();
   };
 
   const createTask = () => {
@@ -65,12 +59,9 @@ const Heading = () => {
   };
 
   return (
-    <div
-      className="todolistCard">
-      <div
-        className="headingGroup">
-        <div
-          className="headingContainer">
+    <div className="todolistCard">
+      <div className="headingGroup">
+        <div className="headingContainer">
           <input
             className="headingText"
             placeholder='Task List'
@@ -97,7 +88,7 @@ const Heading = () => {
         createTask={createTask}
       />
     </div>
-  )
+  );
 };
 
 export default Heading;

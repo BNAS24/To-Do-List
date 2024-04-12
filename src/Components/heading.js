@@ -7,31 +7,41 @@ const Heading = () => {
   const [tasks, setTasks] = useState([]);
   const currentDate = new Date();
   const formattedDate = `Created: ${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
-  const [sounds, setSounds] = useState({})
-
-
+  const [sounds, setSounds] = useState({
+    dingAudio: null,
+    clickAudio: null,
+  });
 
   useEffect(() => {
-    const clickAudio = new Audio('/tap-sound.mp3');
-    const dingAudio = new Audio('/bell-ding.mp3');
+    const loadAudio = (audioFile, callback) => {
+      const audioElement = new Audio(audioFile);
+      audioElement.addEventListener('canplaythrough', () => {
+        callback(audioElement);
+      });
+    };
 
-    dingAudio.volume = 0.3; // Set the volume to 50%
-    clickAudio.volume = 0.3; // Set the volume to 50%
+    loadAudio('/tap-sound.mp3', (clickAudio) => {
+      clickAudio.volume = 0.3;
+      setSounds((prevState) => ({ ...prevState, clickAudio }));
+    });
 
-    setSounds((prevState) => ({
-      ...prevState,
-      dingAudio: dingAudio,
-      clickAudio: clickAudio,
-    }))
-  }, [])
+    loadAudio('/bell-ding.mp3', (dingAudio) => {
+      dingAudio.volume = 0.3;
+      setSounds((prevState) => ({ ...prevState, dingAudio }));
+    });
+  }, []);
 
   // Function to play bubble sound
   const playSound = () => {
-      sounds.clickAudio.play();
+    const clickAudio = sounds.clickAudio;
+    clickAudio.currentTime = 0; // Reset audio to the beginning
+    clickAudio.play();
   };
 
   const playDing = () => {
-      sounds.dingAudio.play();
+    const dingAudio = sounds.dingAudio;
+    dingAudio.currentTime = 0; // Reset audio to the beginning
+    dingAudio.play();
   };
 
   const createTask = () => {

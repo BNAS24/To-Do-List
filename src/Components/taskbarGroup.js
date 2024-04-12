@@ -7,8 +7,6 @@ const TaskBarGroup = ({
     deleteTask,
 }) => {
 
-    console.log('task:', tasks)
-
     return (
         <TaskContextProvider>
             <div

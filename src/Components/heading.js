@@ -9,6 +9,8 @@ const Heading = () => {
   const formattedDate = `Created: ${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
   const [sounds, setSounds] = useState({})
 
+
+
   useEffect(() => {
     const clickAudio = new Audio('/tap-sound.mp3');
     const dingAudio = new Audio('/bell-ding.mp3');
@@ -23,19 +25,13 @@ const Heading = () => {
     }))
   }, [])
 
-  console.log('sounds', sounds);
-
   // Function to play bubble sound
   const playSound = () => {
-    const clickAudio = sounds.clickAudio;
-    clickAudio.currentTime = 0; // Reset audio to the beginning
-    clickAudio.play();
+      sounds.clickAudio.play();
   };
 
   const playDing = () => {
-    const dingAudio = sounds.dingAudio;
-    dingAudio.currentTime = 0; // Reset audio to the beginning
-    dingAudio.play();
+      sounds.dingAudio.play();
   };
 
   const createTask = () => {
@@ -85,7 +81,6 @@ const Heading = () => {
       />
       <NewTask
         createTask={createTask}
-        sounds={sounds}
       />
     </div>
   )

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NewTask } from './newtask';
 import './styles/heading.css';
 import TaskBarGroup from './taskbarGroup';
@@ -7,35 +7,35 @@ const Heading = () => {
   const [tasks, setTasks] = useState([]);
   const currentDate = new Date();
   const formattedDate = `Created: ${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
-  const clickAudio = new Audio('/tap-sound.mp3');
-  const dingAudio = new Audio('/bell-ding.mp3');
+  const [sounds, setSounds] = useState({})
 
-  dingAudio.volume = 0.3; // Set the volume to 50%
-  clickAudio.volume = 0.3; // Set the volume to 50%
+  useEffect(() => {
+    const clickAudio = new Audio('/tap-sound.mp3');
+    const dingAudio = new Audio('/bell-ding.mp3');
+
+    dingAudio.volume = 0.3; // Set the volume to 50%
+    clickAudio.volume = 0.3; // Set the volume to 50%
+
+    setSounds((prevState) => ({
+      ...prevState,
+      dingAudio: dingAudio,
+      clickAudio: clickAudio,
+    }))
+  }, [])
+
+  console.log('sounds', sounds);
 
   // Function to play bubble sound
-  const playSound = async () => {
-    try {
-      await clickAudio.play();
-    } catch (error) {
-      console.error("Failed to play audio:", error);
-      // Implement fallback mechanism here, e.g., displaying a message to the user
-      alert("Failed to play audio. Please try again later.");
-    }
+  const playSound = () => {
+    const clickAudio = sounds.clickAudio;
+    clickAudio.currentTime = 0; // Reset audio to the beginning
+    clickAudio.play();
   };
 
-  const playDing = async () => {
-    try {
-      if (dingAudio.src) {
-        await dingAudio.play();
-      } else {
-        console.error("Audio source not provided");
-      }
-    } catch (error) {
-      console.error("Failed to play audio:", error);
-      // Implement fallback mechanism here, e.g., displaying a message to the user
-      alert("Failed to play audio. Please try again later.");
-    }
+  const playDing = () => {
+    const dingAudio = sounds.dingAudio;
+    dingAudio.currentTime = 0; // Reset audio to the beginning
+    dingAudio.play();
   };
 
   const createTask = () => {

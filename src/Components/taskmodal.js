@@ -96,32 +96,62 @@ export const TaskModal = ({ closeModal, dateCreated, deleteTask }) => {
     }
 
     return (
-        <div className="modal-dropback" onClick={closeModal}>
-            <div className="modal-card" onClick={stopPropagation}>
-                <div className="modal-task-title-div">
-                    <input id='modal-task-title' className='modal-task-title'
+        <div
+            className="modal-dropback"
+            onClick={closeModal}
+        >
+            <div
+                className="modal-card"
+                onClick={stopPropagation}
+            >
+                <div
+                    className="modal-task-title-div"
+                >
+                    <input
+                        id='modal-task-title'
+                        className='modal-task-title'
                         type='text'
                         value={taskTitle}
                         onChange={updateTitle}
                         placeholder='Enter Title'
                         maxLength={100}
-                    ></input>
-                </div>
-
-                <div className="modal-date-created">{dateCreated}</div>
-                <div className='modal-due-date-div' onClick={stopPropagation}>
-                    <label>Due:</label>
-                    <input className='modal-due-date'
-                        type='date'
-                        value={dueDate}
-                        onChange={updateDueDate}
-                        placeholder='Due Date'
-                        maxLength={15}
                     >
                     </input>
                 </div>
-                <h3 className="description-title">Description</h3>
-                <div className='modal-description'>
+                <div className='date-group-modal'>
+                    <p
+                        className="modal-date-created"
+                    >
+                        {dateCreated}
+                    </p>
+                    <div
+                        className='modal-due-date-div'
+                        onClick={stopPropagation}
+                    >
+                        <label>Due:</label>
+                        <input
+                            className='modal-due-date'
+                            type='date'
+                            value={dueDate}
+                            onChange={updateDueDate}
+                            placeholder='Due Date'
+                            maxLength={15}
+                        >
+                        </input>
+                    </div>
+                </div>
+
+                <div
+                    className='center-of-modal'
+                >
+                    {/* <div
+                        className='description-group'
+                    > */}
+                    <p
+                        className="description-title"
+                    >
+                        Description
+                    </p>
                     <textarea
                         type="text"
                         placeholder='Enter description here...'
@@ -130,14 +160,45 @@ export const TaskModal = ({ closeModal, dateCreated, deleteTask }) => {
                         className='modal-description-text-area'
                     >
                     </textarea>
+                    {/* </div> */}
+
+                    <div
+                        className='priority-container'
+                    >
+                        <div
+                            className="priority1 priority-comp"
+                            id="p1"
+                            onClick={handlePriorityClick}
+                        >
+                            <p>P1</p>
+                        </div>
+                        <div
+                            className="priority2 priority-comp"
+                            id="p2"
+                            onClick={handlePriorityClick}>
+                            <p>P2</p>
+                        </div>
+                        <div
+                            className="priority3 priority-comp"
+                            id="p3"
+                            onClick={handlePriorityClick}>
+                            <p>P3</p>
+                        </div>
+                        <div
+                            className="priority4 priority-comp"
+                            id="p4"
+                            onClick={handlePriorityClick}>
+                            <p>P4</p>
+                        </div>
+                    </div>
                 </div>
-                <div className='priority-container'>
-                    <div className="priority1 priority-comp" id="p1" onClick={handlePriorityClick}><p>P1</p></div>
-                    <div className="priority2 priority-comp" id="p2" onClick={handlePriorityClick}><p>P2</p></div>
-                    <div className="priority3 priority-comp" id="p3" onClick={handlePriorityClick}><p>P3</p></div>
-                    <div className="priority4 priority-comp" id="p4" onClick={handlePriorityClick}><p>P4</p></div>
-                </div>
-                <button className='delete-button' onClick={handleDeleteClick} >DELETE</button>
+
+
+                <button
+                    className='delete-button'
+                    onClick={handleDeleteClick}
+                >DELETE
+                </button>
             </div>
         </div>
     );

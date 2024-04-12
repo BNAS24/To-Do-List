@@ -26,7 +26,11 @@ const Heading = () => {
     dingAudio.volume = 0.3;
 
     // Update state with audio elements
-    setSounds({ clickAudio, dingAudio });
+    setSounds({
+      clickAudio: clickAudio,
+      dingAudio: dingAudio,
+    });
+    
   }, []);
 
   // Function to play bubble sound

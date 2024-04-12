@@ -85,6 +85,7 @@ const Heading = () => {
       />
       <NewTask
         createTask={createTask}
+        sounds={sounds}
       />
     </div>
   )

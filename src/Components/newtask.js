@@ -1,12 +1,12 @@
 import './styles/newtask.css';
 
-export const NewTask = ({ createTask }) => {
+export const NewTask = ({ createTask, sounds }) => {
 
     return (
         <>
             <div 
             className='newTask' 
-            onClick={() => createTask()}
+            onClick={() => createTask() && sounds.dingAudio.play()}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
